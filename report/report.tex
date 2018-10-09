@@ -110,9 +110,9 @@ To demonstrate approximate computing, we introduce a computational error, a stat
 Fixed point error is described by the following equation. 
 \begin{equation}
 \begin{pmatrix}
-\textbf{F}_{I}^{L(x)}\\ 
-\textbf{F}_{I}^{L(y)}\\ 
-\textbf{F}_{I}^{L(z)}\\ 
+\textbf{F}_{I}^{FPGA(x)}\\ 
+\textbf{F}_{I}^{FPGA(y)}\\ 
+\textbf{F}_{I}^{FPGA(z)}\\ 
 
 \end{pmatrix} = 
 \begin{pmatrix}
@@ -150,6 +150,7 @@ c_{3}.10^{-(\alpha3+\beta)}\\
 
 \end{pmatrix}
 \end{equation}
+
 where c1, c2 and c3 is a random value in the range [-0.5, 0.5]. The values of \(\beta\) that are used in our test simulation runs are discussed in more detail in the computational details section.
 
 We use Langevin dynamics, a popular molecular dynamics technique for the purpose to demonstrate that the computational errors introduced by the methods described above can be effectively compensated by an existing framework. 
@@ -237,7 +238,7 @@ Pair correlation function for (a) liquid silicon (3000 K) and (b) liquid silicon
 \begin{figure}[h!]%[!htpb,floatfix]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
-{figures/test1.pdf}
+{figures/maxwelldistribution.pdf}
 \end{center}
 \caption{\label{Fig3}
 Statistical properties in a 1000 atoms liquid Si simulation at 3000 K. (a) The ionic kinetic energy distributions (line) is compared with the exact Maxwell distribution (circles)
@@ -245,7 +246,33 @@ Statistical properties in a 1000 atoms liquid Si simulation at 3000 K. (a) The i
 
 In Fig 3, the ionic kinetic energy distribution calculated with forces to which a computational error is added is compared with the exact Maxwell distribution line and it is seen that not only the average energy is correct but also its fluctuations follow the Maxwell distribution. 
 
+\begin{figure}[h!]%[!htpb,floatfix]
+\begin{center}
+\includegraphics[width=0.475\textwidth]
+{figures/force_autocorrelation.pdf}
+\end{center}
+\caption{\label{Fig4}
+The Autocorrelation of the noisy force \(
+ \left \langle \textbf{F}_{I}^{FPGA}\left ( 0 \right ) \textbf{F}_{I}^{FPGA}\left ( t \right )\right \rangle \)(line) is compared with the autocorrelation of the exact force \( \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle \)(circles) 
+} \end{figure}
 
+The autocorrelation of the noisy force is expanded by the following equation, 
+
+\begin{subequations}
+\begin{equation}
+\begin{split}
+\left \langle \textbf{F}_{I}^{FPGA}\left ( 0 \right )\textbf{F}_{I}^{FPGA}\left ( t \right )\right \rangle = \left \langle \left ( \textbf{F}_{I}\left ( 0 \right ) + \Xi _{I}^{N}\left(0 \right )\right) \linebreak \left( \textbf{F}_{I}\left ( t \right )+\Xi _{I}^{N}\left ( t \right )\right) \right \rangle
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+=\left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle + \left \langle \textbf{F}_{I}\left ( 0 \right ) \Xi _{I}^{N}\left(t \right )\right \rangle  \linebreak \\ + \left \langle \textbf{F}_{I}\left ( t \right ) \Xi _{I}^{N}\left(0 \right )\right \rangle + \left \langle \Xi _{I}^{N}\left(0 \right ) \Xi _{I}^{N}\left(t \right )\right \rangle
+\end{split}
+\end{equation}
+\end{subequations}
+
+In Eq. (8b), the cross correlation terms between exact force and the white noise becomes zero, thereby giving us an equation where the autocorrelation of noisy force is equal to the autocorrelation of the exact force. From Fig 4, we prove this behavior where the autocorrelation of the noisy force is compared with the autocorrelation of the exact force. 
 
 \section{Summary}
 
