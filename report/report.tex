@@ -128,8 +128,8 @@ c_{3}.10^{-\beta }\\
 
 \end{pmatrix}
 \end{equation}
-where c1, c2 and c3 is a random value in the range [-0.5, 0.5]. The values of \(\beta\) that were used in our test simulation runs are discussed in more detail in the computational details section.  
-Floating point error is described by the following equations.
+where c1, c2 and c3 is a random value chosen in the range [-0.5, 0.5]. The values of \(\beta\) that were used in our test simulation runs are discussed in more detail in the computational details section. \(\textbf{F}_{I}\) is the exact consistent force and \(\textbf{F}_{I}^{FPGA}\) is the force computed when MD is run in the FPGA. 
+Floating point error is described by the following equation.
 \begin{equation}
 \begin{pmatrix}
 \textbf{F}_{I}^{FPGA(x)}\\ 
@@ -151,7 +151,7 @@ c_{3}.10^{-(\alpha3+\beta)}\\
 \end{pmatrix}
 \end{equation}
 
-where c1, c2 and c3 is a random value in the range [-0.5, 0.5]. The values of \(\beta\) that are used in our test simulation runs are discussed in more detail in the computational details section.
+where c1, c2 and c3 is a random value chosen in the range [-0.5, 0.5]. The values of \(\beta\) that are used in our test simulation runs are discussed in more detail in the computational details section.
 
 We use Langevin dynamics, a popular molecular dynamics technique for the purpose to demonstrate that the computational errors introduced by the methods described above can be effectively compensated by an existing framework. 
 For the langevin dynamics molecular simulation run on a FPGA or GPU based accelerators, we assume at this point a computational error \(\Xi _{I}^{N}\) is added to the force computed and the force we get at the output is not the exact force \(\textbf{F}_{I}\) but an approximation
@@ -186,7 +186,7 @@ Molecular dynamics simulation configured for the above settings is run in the La
 
 For the procedure described above if we take a \(\gamma\) value of 1/1000, we find that we need to add a correction in order to get the average kinetic energy to a fixed value. The correction is through the parameter shadow \(\gamma\) and this parameter is available through LANGEVIN section of the cp2k software.   
 
-The following tables lists down shadow \(\gamma\) values used for fixed point and floating point errors.  Units for \(\gamma\) and shadow \(\gamma\) is \(fs^{-1}\). \\\\\\
+The following tables lists down shadow \(\gamma\) values used for fixed point and floating point errors.  Units for \(\gamma\) and shadow \(\gamma\) is \(fs^{-1}\). As described in the previous work \cite{ShadowGammaEstimate} an estimate of shadow \(\gamma\) can be computed by integrating the autocorrelation function of the noise. \\\\\\
 
 
 \textbf{Table1.} Shown are the shadow \(\gamma\) values for fixed point errors. \\ \\
@@ -220,28 +220,28 @@ The following tables lists down shadow \(\gamma\) values used for fixed point an
 \begin{figure}[h!]%[!htpb,floatfix]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
-{figures/rdffixedpt.pdf}
+{figures/fixedpointrdf1.pdf}
 \end{center}
 \caption{\label{Fig1}
-Pair correlation function for (a) liquid silicon (3000 K) and (b) liquid silicon with noisy forces introduced by different range of fixed point errors.
+Pair correlation function for (a) liquid silicon (3000 K) in red and (b) liquid silicon (3000 K) with noisy forces introduced by fixed point errors corresponding to \(\beta\) values 1(blue), 2(yellow) and 3(green).
 } \end{figure}
 
 \begin{figure}[h!]%[!htpb,floatfix]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
-{figures/rdffloatingpt.pdf}
+{figures/floatingpointrdf1.pdf}
 \end{center}
 \caption{\label{Fig2}
-Pair correlation function for (a) liquid silicon (3000 K) and (b) liquid silicon with noisy forces introduced by different range of floating point errors.
+Pair correlation function for (a) liquid silicon (3000 K) in red and (b) liquid silicon (3000 K) with noisy forces introduced by floating point errors corresponding to \(\beta\) values 0(blue), 1(yellow) and 2(green).
 } \end{figure}
 
 \begin{figure}[h!]%[!htpb,floatfix]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
-{figures/maxwelldistribution.pdf}
+{figures/maxwelldistribution2.pdf}
 \end{center}
 \caption{\label{Fig3}
-Statistical properties in a 1000 atoms liquid Si simulation at 3000 K. (a) The ionic kinetic energy distributions (line) is compared with the exact Maxwell distribution (circles)
+Statistical properties in a 1000 atoms liquid Si simulation at 3000 K. (a) The ionic kinetic energy distributions (line) is compared with the exact Maxwell distribution (circles).
 } \end{figure}
 
 In Fig 3, the ionic kinetic energy distribution calculated with forces to which a computational error is added is compared with the exact Maxwell distribution line and it is seen that not only the average energy is correct but also its fluctuations follow the Maxwell distribution. 
@@ -249,11 +249,11 @@ In Fig 3, the ionic kinetic energy distribution calculated with forces to which 
 \begin{figure}[h!]%[!htpb,floatfix]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
-{figures/force_autocorrelation.pdf}
+{figures/force_autocorrelation1.pdf}
 \end{center}
 \caption{\label{Fig4}
 The Autocorrelation of the noisy force \(
- \left \langle \textbf{F}_{I}^{FPGA}\left ( 0 \right ) \textbf{F}_{I}^{FPGA}\left ( t \right )\right \rangle \)(line) is compared with the autocorrelation of the exact force \( \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle \)(circles) 
+ \left \langle \textbf{F}_{I}^{FPGA}\left ( 0 \right ) \textbf{F}_{I}^{FPGA}\left ( t \right )\right \rangle \)(line) is compared with the autocorrelation of the exact force \( \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle \)(circles). 
 } \end{figure}
 
 The autocorrelation of the noisy force is expanded by the following equation, 
@@ -261,18 +261,21 @@ The autocorrelation of the noisy force is expanded by the following equation,
 \begin{subequations}
 \begin{equation}
 \begin{split}
-\left \langle \textbf{F}_{I}^{FPGA}\left ( 0 \right )\textbf{F}_{I}^{FPGA}\left ( t \right )\right \rangle = \left \langle \left ( \textbf{F}_{I}\left ( 0 \right ) + \Xi _{I}^{N}\left(0 \right )\right) \linebreak \left( \textbf{F}_{I}\left ( t \right )+\Xi _{I}^{N}\left ( t \right )\right) \right \rangle
+\left \langle \textbf{F}_{I}^{FPGA}\left ( 0 \right )\textbf{F}_{I}^{FPGA}\left ( t \right )\right \rangle = \linebreak \\ \left \langle \left ( \textbf{F}_{I}\left ( 0 \right ) + \Xi _{I}^{N}\left(0 \right )\right) \left( \textbf{F}_{I}\left ( t \right )+\Xi _{I}^{N}\left ( t \right )\right) \right \rangle
 \end{split}
 \end{equation}
 
 \begin{equation}
 \begin{split}
-=\left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle + \left \langle \textbf{F}_{I}\left ( 0 \right ) \Xi _{I}^{N}\left(t \right )\right \rangle  \linebreak \\ + \left \langle \textbf{F}_{I}\left ( t \right ) \Xi _{I}^{N}\left(0 \right )\right \rangle + \left \langle \Xi _{I}^{N}\left(0 \right ) \Xi _{I}^{N}\left(t \right )\right \rangle
+\left \langle \textbf{F}_{I}^{FPGA}\left ( 0 \right )\textbf{F}_{I}^{FPGA}\left ( t \right )\right \rangle = \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle + \linebreak \\\left \langle \textbf{F}_{I}\left ( 0 \right ) \Xi _{I}^{N}\left(t \right )\right \rangle +  \left \langle \textbf{F}_{I}\left ( t \right ) \Xi _{I}^{N}\left(0 \right )\right \rangle + \left \langle \Xi _{I}^{N}\left(0 \right ) \Xi _{I}^{N}\left(t \right )\right \rangle
 \end{split}
 \end{equation}
 \end{subequations}
 
 In Eq. (8b), the cross correlation terms between exact force and the white noise becomes zero, thereby giving us an equation where the autocorrelation of noisy force is equal to the autocorrelation of the exact force. From Fig 4, we prove this behavior where the autocorrelation of the noisy force is compared with the autocorrelation of the exact force. 
+
+If the random value that was used to generate the computational error is chosen in the range [0,1] instead of [-0.5,0.5], we encounter a phenomenon called "Flying Ice Cube"\cite{flyingIceCube} during our MD simulations.  
+
 
 \section{Summary}
 
@@ -298,6 +301,10 @@ CP2K Open Source Molecular Dynamics,
 \bibitem{bazantEIP} 
 EIP Bazant potential,
 \textit{tofill}
+
+\bibitem{ShadowGammaEstimate} 
+Khaliullin, Rustam Z, VandeVondele, Joost, Hutter, Juerg. 
+\textit{Efficient Linear-Scaling Density Functional Theory for Molecular Systems}
 
 \bibitem{flyingIceCube} 
 Stephen C. Harvey, Robert K.-Z. TAN, Thomas Cheatham. 
