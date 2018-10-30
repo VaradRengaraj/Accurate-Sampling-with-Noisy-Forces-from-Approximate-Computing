@@ -5,6 +5,8 @@
 *.fdb_latexmk
 *.fls
 *.log
+*.bak
+*.sav
 report.pdf
 reportNotes.bib
 .DS_Store
