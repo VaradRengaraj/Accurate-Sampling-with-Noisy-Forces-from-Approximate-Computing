@@ -1,0 +1,75 @@
+To demonstrate approximate computing, we introduce a computational error, a statistical noise to the forces computed on the atom when running the MD simulation. In this section, we describe in detail on how we introduce the computational error, a process we mimic in our standard system instead of running the MD on the actual FPGA or GPU hardware. We classify the computational errors into two types 1. Fixed point error 2. Floating point error. 
+Fixed point error is described by the following equation. 
+\begin{equation}
+\begin{pmatrix}
+\textbf{F}_{I}^{FPGA(x)}\\ 
+\textbf{F}_{I}^{FPGA(y)}\\ 
+\textbf{F}_{I}^{FPGA(z)}\\ 
+
+\end{pmatrix} = 
+\begin{pmatrix}
+\textbf{F}_{I}^{x}\\ 
+\textbf{F}_{I}^{y}\\ 
+\textbf{F}_{I}^{z}\\ 
+
+\end{pmatrix} + 
+\begin{pmatrix}
+c_{1}.10^{-\beta }\\ 
+c_{2}.10^{-\beta }\\ 
+c_{3}.10^{-\beta }\\ 
+
+\end{pmatrix}
+\end{equation}
+ 
+Floating point error is described by the following equation.
+\begin{equation}
+\begin{pmatrix}
+\textbf{F}_{I}^{FPGA(x)}\\ 
+\textbf{F}_{I}^{FPGA(y)}\\ 
+\textbf{F}_{I}^{FPGA(z)}\\ 
+
+\end{pmatrix} = 
+\begin{pmatrix}
+\textbf{F}_{I}^{x}.10^{-\alpha1}\\ 
+\textbf{F}_{I}^{y}.10^{-\alpha2}\\ 
+\textbf{F}_{I}^{z}.10^{-\alpha3}\\ 
+
+\end{pmatrix} + 
+\begin{pmatrix}
+c_{1}.10^{-(\alpha1+\beta)}\\ 
+c_{2}.10^{-(\alpha2+\beta)}\\ 
+c_{3}.10^{-(\alpha3+\beta)}\\ 
+
+\end{pmatrix}
+\end{equation}
+
+where c1, c2 and c3 are random values chosen in the range [-0.5, 0.5]. The values of \(\beta\) that were used in our simulation runs are discussed in detail in the computational details section. \(\textbf{F}_{I}\) is the exact consistent force and \(\textbf{F}_{I}^{FPGA}\) is the force computed when MD is run on the FPGA.
+
+We use Langevin equations in molecular dynamics for the purpose of demonstrating that the computational errors introduced by the methods described above can be effectively compensated by an existing framework. 
+For the langevin dynamics (LD) run on a FPGA or GPU based accelerators, we assume at this point a computational error \(\mathbf{\Xi }_{I}^{N}\) is added to the force that is computed and the force that we get at the output is not the exact force \(\textbf{F}_{I}\) but an approximation
+\begin{equation}
+\textbf{F}_{I}^{FPGA} = \textbf{F}_{I}+ \mathbf{\Xi }_{I}^{N}
+\end{equation} 
+Fortunately in our case, it is still possible to accurately obtain Boltzmann sampling by means of a modified Langevin equation 
+\begin{equation}
+M_{I}\ddot{\textbf{R}}_{I}=\textbf{F}_{I}+\mathbf{\Xi }_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I} 
+\end{equation}
+which in our case is,
+\begin{equation}
+M_{I}\ddot{\textbf{R}}_{I} = \textbf{F}_{I}^{FPGA}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I}
+\end{equation}
+
+where \(\textbf{R}_{I}\) are the positions of the atoms, \(M_{I}\) the corresponding atomic nuclear masses and \(\gamma _{N}\) is a friction coefficient which is approximately chosen to compensate for the additive white noise \(\mathbf{\Xi }_{I}^{N}\) which in this case is unbiased.
+The additive white noise therefore has to obey
+
+\begin{equation}
+ \left \langle \textbf{F}_{I}\left ( 0 \right ) \mathbf{\Xi } _{I}^{N}\left ( t \right )\right \rangle \cong  0,
+\end{equation}
+
+and as well as the fluctuation-dissipation theorem
+
+\begin{equation}
+\left \langle \mathbf{\Xi } _{I}^{N}\left ( 0 \right ) \mathbf{\Xi } _{I}^{N}\left ( t \right ) \right \rangle \cong  2k_{B}TM\gamma _{I}^{N}\delta \left ( t \right )
+\end{equation}  
+
+We further present in this paper the method to effectively compensate for the additive noise introduced on the force using the existing langevin dynamics framework. 

@@ -7,3 +7,4 @@
 *.log
 report.pdf
 reportNotes.bib
+.DS_Store

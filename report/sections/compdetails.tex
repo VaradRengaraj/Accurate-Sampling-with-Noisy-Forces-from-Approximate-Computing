@@ -1,0 +1,32 @@
+To demonstrate our method as described above, we have implemented it in the Frontiers in simulation technology (force field implementation) code which is part of the publicly available suite of programs CP2k \cite{cp2kwebsite}. We configured to run the langevin dynamics for the Silicon (Si) atom with a time step of 1 femtosecond (fs) at a temperature of 3000 K. The Empirical Interatomic Potential (EIP) calculation model for our MD simulation is Bazant potentials. The total number of Si atoms used for the MD simulation is thousand with a cubic cell length of 27.155 Angstrom. 
+
+Langevin dynamics configured for the above settings have been run with frictional coefficient \(\gamma\) assigned a value equal to 1/1000 \(fs^{-1}\). This simulation run is considered as the reference with which the computational error introduced simulations are compared. As described in the Methodology section, computational errors are classified as fixed point error and floating point error. With necessary changes incorporated to the cp2k software, two different builds for the two variants of errors have been made and Langevin dynamics were performed on those builds. Three different cases of fixed point errors were tested and for the equation representing fixed point error, the corresponding \(\beta\) value that was used were 1, 2 and 3. Similarly three different cases of floating point errors were tested and for the equation representing floating point error, the corresponding \(\beta\) value that was used were 0, 1, 2.
+
+As discussed earlier in the methodology section, a separate frictional coefficient is necessary to compensate for the computational error that was  introduced in the builds. This frictional coefficient is managed through the parameter called shadow \(\gamma\) and this parameter is available in the langevin section of the cp2k software.   
+
+The following tables lists down shadow \(\gamma\) values used for fixed point and floating point errors.  Units for \(\gamma\) and shadow \(\gamma\) is \(fs^{-1}\). As described in this paper \cite{ShadowGammaEstimate} an approximate value of shadow \(\gamma\) can be computed by integrating the autocorrelation function of the additive white noise. \\\\\\
+
+
+\textbf{Table 1.} Shown are the shadow \(\gamma\) values for fixed point errors. \\ \\
+\begin{table}[h!]
+\begin{tabular}{|l|l|}
+\hline
+\textit{\(\beta\) } & \textit{Shadow \(\gamma\)} \\ \hline
+1             & 0.0004                \\ \hline
+2             & 0.000009              \\ \hline
+3             & 0.0000009             \\ \hline
+\end{tabular}
+\end{table}
+
+
+\textbf{Table 2.} Shown are the shadow \(\gamma\) values for floating point errors.\\
+
+\begin{table}[h!]
+\begin{tabular}{|l|l|}
+\hline
+\textit{\(\beta\) } & \textit{Shadow \(\gamma\)} \\ \hline
+0             & 0.00025               \\ \hline
+1             & 0.000005              \\ \hline
+2             & 0.000005              \\ \hline
+\end{tabular}
+\end{table}
