@@ -10,3 +10,4 @@
 report.pdf
 reportNotes.bib
 .DS_Store
+*.synctex.gz

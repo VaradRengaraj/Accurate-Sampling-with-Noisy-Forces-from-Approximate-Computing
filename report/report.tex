@@ -16,7 +16,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{bbold}
-\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[american]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{longtable}
@@ -38,6 +38,8 @@
 \DeclareMathOperator{\con}{cond}
 \DeclareMathOperator{\diag}{diag}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcommand{\michael}[1]{\textcolor{MidnightBlue}{#1}}
 
 \begin{document}
 
@@ -66,11 +68,11 @@
 
 
 \begin{abstract}
-Abstract needs to be written\dots
+\michael{Abstract needs to be written\dots}
 \end{abstract}
 
 %A Valid PACS numbers may be entered using the \verb+\pacs{#1}+ command.
-\pacs{31.15.-p, 31.15.Ew, 71.15.-m, 71.15.Pd}% PACS, the Physics and Astronomy
+\pacs{31.15.-p, 31.15.Ew, 71.15.-m, 71.15.Pd \michael{(already correct?)}}% PACS, the Physics and Astronomy
                              % Classification Scheme.
 \keywords{}%Use showkeys class option if keyword
                               %display desired
@@ -80,6 +82,10 @@ Abstract needs to be written\dots
 
 \section{Introduction}
 \input{sections/introduction}
+
+\section{Foundations}
+\input{sections/foundations-compsci}
+\input{sections/foundations-chem}
 
 \section{Methodology}
 \input{sections/methodology}
