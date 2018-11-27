@@ -1,1 +1,53 @@
-...
+\subsection{Common number formats and their support in hardware}
+
+\michael{In recent time we see increased use of floating-point variants
+different to single-precision and double-precision. Table~\ref{tab:float} lists
+some commonly used data types, and the number of bits used to represent the
+exponent and the mantissa (incl. the implicit bit).}
+
+\begin{table}
+  \caption{Common floating-point types}
+  \label{tab:float}
+  \begin{tabular}{lrr}
+    Type & exponent bits & mantissa bits \\
+    \hline
+    Quadruple-precision & 15 & 113 \\
+    Double-precision & 11 & 53 \\
+    Single-precision & 8 & 24 \\
+    Half-precision & 5 & 11 \\
+    Bfloat16 & 8 & 8 \\
+  \end{tabular}
+\end{table}
+
+\michael{Hardware support for these formats are typically available for
+single-precision and double-precision. Due to the spread of machine learning
+applications, some modern GPUs targeting the data center start supporting
+half-precision as well, doubling the peak performance compared to
+single-precision and quadrupling it compared to double-precision
+arithmetics~\cite{tesla}. Due to the low number of exponent bits, half-precision
+however only provides a very limited dynamic range. In contrast, bfloat16
+provides the same dynamic range as single-precision, and just reduces precision.
+It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu}
+and support is announced for future Intel Xeon processors~\cite{xeon}.}
+
+\michael{FPGAs as a platform for custom-built accelerator designs can make
+effective use of all of these and also entirely custom number formats. The
+benefit of using low-precision types for peak performance and resource
+utilization are not as foreseeable as on fixed hardware architectures but
+instead depend on how efficiently the given hardware specification can be mapped
+to hardware elements on the FPGA. However, similar speedups as for CPUs and GPUs
+can often be achieved.}
+
+\michael{In addition to floating-point formats, also fixed-point representations
+can be used. Here, numbers are stored as an integer of fixed size with a
+predefined scaling factor. Calculations are thereby performed using integer
+arithmetic. On CPUs and GPUs only certain models can perform integer operations
+with a peak performance similar to floating-point, depending on the
+capabilities of the vector units / stream processors. FPGAs typically can
+perform integer operations with performance similar to or higher than
+floating-point.}
+
+\michael{Due to the high flexibility of FPGAs with respect to different data
+formats and the possible use of entirely custom data types, we see them as main
+target technology for our work. For this reason, we consider both floating-point
+and fixed-point arithmetic in the following.}
