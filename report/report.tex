@@ -51,34 +51,36 @@
 
 %\preprint{APS/123-QED}
 
-\title{TBD}% Force line breaks with \\
+\title{Accurate Sampling with Noisy Forces from Approximate Computing}% Force line breaks with \\
 
 \author{Varadarajan Rengaraj}
-\email{rengaraj@campus.uni-paderborn.de}
-\affiliation{Department of Computer Science, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+%\email{rengaraj@campus.uni-paderborn.de}
+\affiliation{Dynamics of Condensed Matter and Department of Computer Science, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
 
 \author{Michael Lass}
-\email{michael.lass@uni-paderborn.de}
-\affiliation{Department of Computer Science, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+%\email{michael.lass@uni-paderborn.de}
+\affiliation{Department of Computer Science and Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
 
 \author{Christian Plessl}
-\email{christian.plessl@uni-paderborn.de}
-\affiliation{Department of Computer Science, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+%\email{christian.plessl@uni-paderborn.de}
+\affiliation{Department of Computer Science and Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
 
 \author{Thomas D. K\"uhne}
 \email{tdkuehne@mail.upb.de}
-\affiliation{Department of Chemistry, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\affiliation{Dynamics of Condensed Matter and Center for Sustainable Systems Design, Chair of Theoretical Chemistry, University of Paderborn, Warburger Str. 100, D-33098 Paderborn, Germany}
 
 \date{\today}% It is always \today, today,
              %  but any date may be explicitly specified
 
 
 \begin{abstract}
-\michael{Abstract needs to be written\dots}
+In scientific computing, the acceleration of atomistic computer simulations by means of custom hardware is finding ever growing application. 
+%Accelerating atomistic computer simulations using hardware acceleration is finding ever growing application in scientific computing. 
+A major limitation, however, is that the high efficiency in terms of performance and low power consumption entails the massive usage of low-precision computing units. Here, based on the approximate computing paradigm, we present an algorithmic method to rigorously compensate for numerical inaccuracies due to low-accuracy arithmetic operations, yet still obtaining exact expectation values using a properly modified Langevin-type equation. %By this, we lay the foundation for the development of efficient MD accelerators.
 \end{abstract}
 
 %A Valid PACS numbers may be entered using the \verb+\pacs{#1}+ command.
-\pacs{31.15.-p, 31.15.Ew, 71.15.-m, 71.15.Pd \michael{(already correct?)}}% PACS, the Physics and Astronomy
+\pacs{31.15.-p, 31.15.Ew, 71.15.-m, 71.15.Pd}% PACS, the Physics and Astronomy
                              % Classification Scheme.
 \keywords{}%Use showkeys class option if keyword
                               %display desired
@@ -89,9 +91,9 @@
 \section{Introduction}
 \input{sections/introduction}
 
-\section{Foundations}
+\section{Approximate Computing}
 \input{sections/foundations-compsci}
-\input{sections/foundations-chem}
+%\input{sections/foundations-chem}
 
 \section{Methodology}
 \input{sections/methodology}
@@ -107,11 +109,9 @@
 
 
 \begin{acknowledgments}
-The authors would like to thank the Gauss Center for Supercomputing (GCS) for providing computing time through the John von Neumann Institute for Computing (NIC) on the GCS share of the supercomputer JUQUEEN at the J\"ulich Supercomputing Centre (JSC). This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No 716142).
+The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No 716142).
 \end{acknowledgments}
 
-
 \bibliography{report}
-
 
 \end{document}
