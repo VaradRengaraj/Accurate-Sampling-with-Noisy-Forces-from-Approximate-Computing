@@ -8,7 +8,7 @@ HEAD=$(cat "$TARGET"/head)
 [ "x$HEAD" == "x" ] && exit 1
 echo "Snapshot is at $HEAD"
 
-DIFF=$(git --work-tree="$TARGET" diff $HEAD)
+DIFF=$(git -c core.fileMode=false --work-tree="$TARGET" diff $HEAD -- . ':!report/.gitignore')
 
 if [ "x$DIFF" != "x" ]; then
   echo "ERROR: There have been changes done to the snapshot:"
