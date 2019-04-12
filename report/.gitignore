@@ -1,13 +1,15 @@
 *.aux
+*.bak
 *.bbl
 *.blg
+*.cut
 *.dvi
 *.fdb_latexmk
 *.fls
 *.log
-*.bak
+*.out
 *.sav
+*.synctex.gz
 report.pdf
 reportNotes.bib
 .DS_Store
-*.synctex.gz
