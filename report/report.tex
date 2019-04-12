@@ -1,24 +1,26 @@
-\documentclass[aps,pre,twocolumn,showpacs,preprintnumbers,amsmath,amssymb]{revtex4-1}
+\documentclass[format=acmsmall,review,authorversion,timestamp]{acmart}
+
+%\documentclass[aps,pre,twocolumn,showpacs,preprintnumbers,amsmath,amssymb]{revtex4-1}
 %\documentclass[preprint,showpacs,preprintnumbers,amsmath,amssymb]{revtex4}
 
-% Some other (several out of many) possibilities
-%\documentclass[preprint,aps]{revtex4}
-%\documentclass[preprint,aps,draft]{revtex4}
-%\documentclass[prb]{revtex4}% Physical Review B
 
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
-\usepackage{bm}% bold math 
+\usepackage{bm}% bold math
 
-\usepackage[latin1]{inputenc}
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{bbold}
-\usepackage[dvipsnames]{xcolor}
+%\usepackage[dvipsnames]{xcolor}
 \usepackage[american]{babel}
-\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
 \usepackage{longtable}
 %\usepackage[dvips]{graphicx}
 \usepackage{xspace}
@@ -47,43 +49,71 @@
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
 
+
+
 \begin{document}
 
-%\preprint{APS/123-QED}
+\acmJournal{TOMS}
 
-\title{Accurate Sampling with Noisy Forces from Approximate Computing}% Force line breaks with \\
+% TODO update after acceptance
+\acmVolume{99}
+\acmNumber{88}
+\acmArticle{77}
+\acmYear{20XX}
+\acmMonth{6}
 
-\author{Varadarajan Rengaraj}
-%\email{rengaraj@campus.uni-paderborn.de}
-\affiliation{Dynamics of Condensed Matter and Department of Computer Science, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\citestyle{acmauthoryear}
 
-\author{Michael Lass}
-%\email{michael.lass@uni-paderborn.de}
-\affiliation{Department of Computer Science and Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+% TODO
+\keywords{}
 
-\author{Christian Plessl}
-%\email{christian.plessl@uni-paderborn.de}
-\affiliation{Department of Computer Science and Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
-
-\author{Thomas D. K\"uhne}
-\email{tdkuehne@mail.upb.de}
-\affiliation{Dynamics of Condensed Matter and Center for Sustainable Systems Design, Chair of Theoretical Chemistry, University of Paderborn, Warburger Str. 100, D-33098 Paderborn, Germany}
-
-\date{\today}% It is always \today, today,
-             %  but any date may be explicitly specified
+% TODO
+% CCScodes ....
 
 
+
+% abstract must preced title in acmart style
 \begin{abstract}
-In scientific computing, the acceleration of atomistic computer simulations by means of custom hardware is finding ever growing application. 
-%Accelerating atomistic computer simulations using hardware acceleration is finding ever growing application in scientific computing. 
+In scientific computing, the acceleration of atomistic computer simulations by means of custom hardware is finding ever growing application.
+%Accelerating atomistic computer simulations using hardware acceleration is finding ever growing application in scientific computing.
 A major limitation, however, is that the high efficiency in terms of performance and low power consumption entails the massive usage of low-precision computing units. Here, based on the approximate computing paradigm, we present an algorithmic method to rigorously compensate for numerical inaccuracies due to low-accuracy arithmetic operations, yet still obtaining exact expectation values using a properly modified Langevin-type equation. %By this, we lay the foundation for the development of efficient MD accelerators.
 \end{abstract}
 
+
+
+\title{Accurate Sampling with Noisy Forces from Approximate Computing}
+
+\author{Varadarajan Rengaraj}
+%\orcid{}
+\affiliation{Dynamics of Condensed Matter and Department of Computer Science, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\email{rengaraj@campus.uni-paderborn.de}
+
+\author{Michael Lass}
+%\orcid{}
+\affiliation{Department of Computer Science Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\affiliation{Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\email{michael.lass@uni-paderborn.de}
+
+\author{Christian Plessl}
+\orcid{0000-0001-5728-9982}
+\affiliation{Department of Computer Science Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\affiliation{Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\email{christian.plessl@uni-paderborn.de}
+
+\author{Thomas D. K\"uhne}
+%\orcid{}
+\affiliation{Dynamics of Condensed Matter and Center for Sustainable Systems Design, Chair of Theoretical Chemistry, University of Paderborn, Warburger Str. 100, D-33098 Paderborn, Germany}
+\email{tdkuehne@mail.upb.de}
+
+
+%\date{\today}% It is always \today
+
+             %\preprint{APS/123-QED}
+
+
 %A Valid PACS numbers may be entered using the \verb+\pacs{#1}+ command.
-\pacs{31.15.-p, 31.15.Ew, 71.15.-m, 71.15.Pd}% PACS, the Physics and Astronomy
+%\pacs{31.15.-p, 31.15.Ew, 71.15.-m, 71.15.Pd}% PACS, the Physics and Astronomy
                              % Classification Scheme.
-\keywords{}%Use showkeys class option if keyword
-                              %display desired
 \maketitle
 
 
@@ -97,10 +127,10 @@ A major limitation, however, is that the high efficiency in terms of performance
 
 \section{Methodology}
 \input{sections/methodology}
- 
+
 \section{Computational details}
 \input{sections/compdetails}
- 
+
 \section{Results and Discussion}
 \input{sections/results}
 
@@ -108,10 +138,26 @@ A major limitation, however, is that the high efficiency in terms of performance
 \input{sections/summary}
 
 
-\begin{acknowledgments}
-The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No 716142).
-\end{acknowledgments}
+% TODO write grant sponsors.. with special environment, see acmart.pdf page 23
+%\begin{acks}
+%  The authors would like to thank Dr. Yuhua Li for providing the
+%  matlab code of the \textit{BEPS} method.
+%  The authors would also like to thank the anonymous referees for
+%  their valuable comments and helpful suggestions. This work is
+%  supported by the \grantsponsor{GS501100001809}{National Natural
+%  Science Foundation of
+%  China}{https://doi.org/10.13039/501100001809} under Grant
+%  No.: ̃\grantnum{GS501100001809}{61273304}
+%  and ̃\grantnum[http://www.nnsf.cn/youngscientists]{GS501100001809}{Young
+%  Scientists’ Support Program}.
+%\end{acks}
 
+\begin{acks}
+The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No 716142).
+\end{acks}
+
+% The next two lines define the bibliography style to be used, and the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
 \bibliography{report}
 
 \end{document}
