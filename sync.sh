@@ -27,5 +27,5 @@ if [ "x$STALE" != "x" ]; then
   echo "WARNING: Stale files found in snapshot:"
   echo "$STALE"
   echo "Run the following command to clean up:"
-  echo "git --work-tree="$TARGET" clean -xdf -e head -- ."
+  echo "git --work-tree=\"$TARGET\" clean -xdf -e head -- ."
 fi
