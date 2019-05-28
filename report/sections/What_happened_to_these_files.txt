@@ -1,0 +1,1 @@
+All TEX files in this directory have been inlined in report.tex. This simplifies global formatting, search an replace, etc.
