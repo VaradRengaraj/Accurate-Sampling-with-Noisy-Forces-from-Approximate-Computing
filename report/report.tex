@@ -39,7 +39,7 @@
 \DeclareMathOperator{\diag}{diag}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
-% \newcommand{\michael}[1]{\textcolor{red}{Michael: #1}}
+% \newcommand{\michael}[1]{\textcolor{olive}{Michael: #1}}
 % \newcommand{\christian}[1]{\textcolor{red}{Christian: #1}}
 
 %Try to avoid widows and orphans
@@ -171,7 +171,10 @@ The remainder of the paper is organized as follows. In Section~\ref{sec:ac} we r
 \label{sec:ac}
 %\subsection{Common number formats and their support in hardware}
 
-A basic method of approximation and a key requirement for efficient use of processing hardware is the use of adequate data widths in computationally intensive kernels. While in many scientific applications the use of double-precision floating-point is most common, this precision is not always required. For example, iterative methods can exhibit resilience against low precision arithmetic~\cite{Strzodka2006, Bekas, Dongarra2017, lass17-esl, Dongarra2018, LassAC}. Mainly driven by the growing popularity of artificial neural networks \cite{Gupta2015}, we can observe growing support of low-precision data types %, such as half-precision floating point and bfloat16,
+A basic method of approximation and a key requirement for efficient use of processing hardware is the use of adequate data widths in computationally intensive kernels. While in many scientific applications the use of double-precision floating-point is most common, this precision is not always required.
+%For example, iterative methods can exhibit resilience against low precision arithmetic~\cite{Strzodka2006, Bekas, Dongarra2017, lass17-esl, Dongarra2018, LassAC}.
+For example, iterative methods can exhibit resilience against low precision arithmetic as has been shown for the computation of inverse matrix roots~\cite{lass17-esl} and for solving systems of linear equations~\cite{KlavikMalossiBekasEtAl2014,Bekas,Dongarra2017,Dongarra2018}.
+Mainly driven by the growing popularity of artificial neural networks \cite{Gupta2015}, we can observe growing support of low-precision data types %, such as half-precision floating point and bfloat16,
 in hardware accelerators.
 %
 In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, \texttt{bfloat16} provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon} and Intel AgileX FPGAs. A list of commonly used data types, together with the corresponding number of bits used to represent the exponent and the mantissa (incl. the implicit bit), are shown in Table~\ref{tab:float}.
@@ -192,12 +195,12 @@ In fact, recent GPUs targeting the data center have started supporting half-prec
 
 %Hardware support for these formats are typically available for single- and double-precision. Due to the spread of machine learning applications, some modern GPUs targeting the data center start supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, bfloat16 provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon}.
 
-Yet, programmable hardware such as FPGAs, as a platform for custom-built accelerator designs \cite{Strzodka2006, KenterVector, KenterPragma}, can make effective use of all of these, but also entirely custom number formats. The benefit of using low-precision types in terms of peak performance and resource utilization are not as foreseeable as on fixed hardware architectures, but instead depends on how efficiently the given hardware specification can be mapped to hardware elements on the FPGA. However, similar speedups as for CPUs and GPUs can often be achieved.
+Yet, programmable hardware such as FPGAs, as a platform for custom-built accelerator designs \cite{Strzodka2006, KenterVector, KenterPragma}, can make effective use of all of these, but also entirely custom number formats.
+%The benefit of using low-precision types in terms of peak performance and resource utilization are not as foreseeable as on fixed hardware architectures, but instead depends on how efficiently the given hardware specification can be mapped to hardware elements on the FPGA. However, similar speedups as for CPUs and GPUs can often be achieved.
+Developers can specify the number of exponent and mantissa bits and trade off precision against the amount of memory blocks required to store values and the number of logic elements required to perform arithmetic operations on them.
 
 In addition to floating-point formats, also fixed-point representations can be used. Here, all numbers are stored as integers of fixed size with a
 predefined scaling factor. Calculations are thereby performed using integer arithmetic. On CPUs and GPUs only certain models can perform integer operations with a peak performance similar to that of floating-point arithmetic, depending on the capabilities of the vector units / stream processors. Nevertheless, FPGAs typically can perform integer operations with performance similar to or even higher than that of floating-point. Due to the high flexibility of FPGAs with respect to different data formats and the possible use of entirely custom data types, we see them as the main target technology for our work. For this reason, we consider both floating-point and fixed-point arithmetic in the following.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
