@@ -39,7 +39,7 @@
 \DeclareMathOperator{\diag}{diag}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
-\newcommand{\michael}[1]{\textcolor{olive}{Michael: #1}}
+\newcommand{\michael}[1]{\textcolor{red}{Michael: #1}}
 \newcommand{\christian}[1]{\textcolor{red}{Christian: #1}}
 
 %Try to avoid widows and orphans
@@ -100,7 +100,7 @@ A major limitation, however, is that the high efficiency in terms of performance
 \email{christian.plessl@uni-paderborn.de}
 
 \author{Thomas D. K\"uhne}
-%\orcid{}
+\orcid{0000-0001-5471-2407}
 \affiliation{Dynamics of Condensed Matter and Center for Sustainable Systems Design, Chair of Theoretical Chemistry, University of Paderborn, Warburger Str. 100, D-33098 Paderborn, Germany}
 \email{tdkuehne@mail.upb.de}
 
@@ -144,9 +144,7 @@ The remainder of the paper is organized as follows. In Section~\ref{sec:ac} we r
 \label{sec:ac}
 %\subsection{Common number formats and their support in hardware}
 
-A basic method of approximation and a key requirement for efficient use of processing hardware is the use of adequate data widths in computationally intensive kernels. While in many scientific applications the use of double-precision floating-point is most common, this precision is not always required. For example, iterative methods can exhibit resilience against low precision arithmetic as has been shown for the computation of inverse matrix roots~\cite{lass17-esl} and for solving systems of linear equations~\cite{KlavikMalossiBekasEtAl2014,Haidar2018}. \christian{Cite/discuss work of Dongharra/Bekas/..}. \michael{I added the references. Do you think we should describe those in more detail? Also I have, for now, removed the reference to our PASC paper because it is not about iterative methods and low precision arithmetic. Maybe we find a way to still include it in this section?}
-%
-Mainly driven by the growing popularity of artificial neural networks, we can observe growing support of low-precision data types %, such as half-precision floating point and bfloat16,
+A basic method of approximation and a key requirement for efficient use of processing hardware is the use of adequate data widths in computationally intensive kernels. While in many scientific applications the use of double-precision floating-point is most common, this precision is not always required. For example, iterative methods can exhibit resilience against low precision arithmetic~\cite{Strzodka2006, Bekas, Dongarra2017, lass17-esl, Dongarra2018, LassAC}. Mainly driven by the growing popularity of artificial neural networks \cite{Gupta2015}, we can observe growing support of low-precision data types %, such as half-precision floating point and bfloat16,
 in hardware accelerators.
 %
 In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, \texttt{bfloat16} provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon} and Intel AgileX FPGAs. A list of commonly used data types, together with the corresponding number of bits used to represent the exponent and the mantissa (incl. the implicit bit), are shown in Table~\ref{tab:float}.
@@ -167,11 +165,12 @@ In fact, recent GPUs targeting the data center have started supporting half-prec
 
 %Hardware support for these formats are typically available for single- and double-precision. Due to the spread of machine learning applications, some modern GPUs targeting the data center start supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, bfloat16 provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon}.
 
-Yet, programmable hardware such as FPGAs, as a platform for custom-built accelerator designs \cite{KenterVector, KenterPragma}, can make effective use of all of these, but also entirely custom number formats. Developers can specify the number of exponent and mantissa bits and trade off precision against the amount of memory blocks required to store values and the number of logic elements to perform arithmetic operations on them.
+Yet, programmable hardware such as FPGAs, as a platform for custom-built accelerator designs \cite{Strzodka2006, KenterVector, KenterPragma}, can make effective use of all of these, but also entirely custom number formats. The benefit of using low-precision types in terms of peak performance and resource utilization are not as foreseeable as on fixed hardware architectures, but instead depends on how efficiently the given hardware specification can be mapped to hardware elements on the FPGA. However, similar speedups as for CPUs and GPUs can often be achieved.
 
-%The benefit of using low-precision types in terms of peak performance and resource utilization are not as foreseeable as on fixed hardware architectures, but instead depends on how efficiently the given hardware specification can be mapped to hardware elements on the FPGA \christian{I don't get it. Rephrase previous and next sentence.}. However, similar speedups as for CPUs and GPUs can often be achieved.
+In addition to floating-point formats, also fixed-point representations can be used. Here, all numbers are stored as integers of fixed size with a
+predefined scaling factor. Calculations are thereby performed using integer arithmetic. On CPUs and GPUs only certain models can perform integer operations with a peak performance similar to that of floating-point arithmetic, depending on the capabilities of the vector units / stream processors. Nevertheless, FPGAs typically can perform integer operations with performance similar to or even higher than that of floating-point. Due to the high flexibility of FPGAs with respect to different data formats and the possible use of entirely custom data types, we see them as the main target technology for our work. For this reason, we consider both floating-point and fixed-point arithmetic in the following.
 
-In addition to floating-point formats, also fixed-point representations can be used. Here, all numbers are stored as integers of fixed size with a predefined scaling factor. Calculations are thereby performed using integer arithmetic. On CPUs and GPUs only certain models can perform integer operations with a peak performance similar to that of floating-point arithmetic, depending on the capabilities of the vector units / stream processors. Nevertheless, FPGAs typically can perform integer operations with performance similar to or even higher than that of floating-point. Due to the high flexibility of FPGAs with respect to different data formats and the possible use of entirely custom data types, we see them as the main target technology for our work. For this reason, we consider both floating-point and fixed-point arithmetic in the following.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
@@ -230,7 +229,7 @@ where $\mathbf{\Xi }_{I}^{N}$ is an additive white noise for which
 \begin{equation} \label{CrossCorr}
  \left \langle \textbf{F}_{I}\left ( 0 \right ) \mathbf{\Xi } _{I}^{N}\left ( t \right )\right \rangle \cong  0
 \end{equation}
-holds. \christian{Explicitly state the $< >$ is the ensemble average and define how it is computed.} Given that $\mathbf{\Xi }_{I}^{N}$ is unbiased, which is in our case is true by its very definition, it is nevertheless possible to accurately sample the Boltzmann distribution by means of a Langevin-type equation \cite{Krajewski,Richters,Karhan}, which in its general form reads as
+holds. Throughout, $\langle \cdots \rangle$ denotes Boltzmann-weighted ensemble averages as obtained by the partition function $Z=\text{Tr} \exp(-E/k_B T)$, where $E$ is the potential energy, $k_B$ the so-called Boltzmann constant, and $T$ the temperature. Given that $\mathbf{\Xi }_{I}^{N}$ is unbiased, which is in our case is true by its very definition, it is nevertheless possible to accurately sample the Boltzmann distribution by means of a Langevin-type equation \cite{Krajewski,Richters,Karhan}, which in its general form reads as
 %Fortunately in our case, it is still possible to accurately obtain Boltzmann sampling by means of a modified Langevin equation
 \begin{equation} \label{LangevinEq}
 M_{I}\ddot{\textbf{R}}_{I}=\textbf{F}_{I}+\mathbf{\Xi }_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I},
@@ -243,15 +242,21 @@ which is chosen to compensate for \(\mathbf{\Xi }_{I}^{N}\). The latter, in orde
 %\end{equation}
 the fluctuation-dissipation theorem
 \begin{equation}
-\left \langle \mathbf{\Xi }_{I}^{N}\left ( 0 \right ) \mathbf{\Xi }_{I}^{N}\left ( t \right ) \right \rangle \cong  2 \gamma_{N} M_I k_{B} T  \delta \left ( t \right ),
+\left \langle \mathbf{\Xi }_{I}^{N}\left ( 0 \right ) \mathbf{\Xi }_{I}^{N}\left ( t \right ) \right \rangle \cong  2 \gamma_{N} M_I k_{B} T  \delta \left ( t \right ).
+\label{FDT}
 \end{equation}
-where $k_B$ is Boltzmann's constant, and $T$ is the desired temperature.
+%where $k_B$ is Boltzmann's constant, and $T$ is the desired temperature.
 
 Substituting Eq.~\ref{fFPGA} into Eq.~\ref{LangevinEq} results in the desired modified Langevin equation
 \begin{equation} \label{modLangevin}
 M_{I}\ddot{\textbf{R}}_{I} = \textbf{F}_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I},
 \end{equation}
-which will be used throughout the remaining of this paper. \christian{To my understanding this is the major trick/highlight of the paper. This shoudl be more clearly visible and explained.}
+which will be used throughout the remaining of this paper. This is to say that the noise, as originating from a low-precision computation, can be though of as the additive white noise of a thitherto unknown damping coefficient $\gamma_N$, which satisfies the fluctuation-dissipation theorem of Eq.~\ref{FDT}.  The specific value of $\gamma_N$ is determined in such a way so as to generate the correct average temperature, as measured by the equipartition theorem
+\begin{equation}
+\left\langle \frac{1}{2} M_I \dot{\textbf{R}}_{I} \right\rangle = \frac{3}{2} k_B T. 
+\label{EquiPartTheorem}
+\end{equation}
+%or in other words that the mean kinetic energy corresponds to the correct temperature $T$. 
 
 %We further present in this paper the method to effectively compensate for the additive noise introduced on the force using the existing langevin dynamics framework.
 
@@ -266,12 +271,8 @@ To demonstrate our approach we have implemented it in the CP2K suite of programs
 All simulations consisted of 1000 Si atoms in a 3D-periodic cubic box of length 27.155~\AA. Using the algorithm of Ricci and Ciccotti \cite{Ricci}, Eq.~\ref{LangevinEq} was integrated with a discretized timestep of 1.0~fs with $\gamma_N = 0.001~$fs$^{-1}$.
 %Langevin dynamics configured for the above settings have been run with frictional coefficient \(\gamma\) assigned a value equal to 1/1000 \(fs^{-1}\). This simulation run is considered as the reference with which the computational error introduced simulations are compared. As described in the Methodology section, computational errors are classified as fixed point error and floating point error. With necessary changes incorporated to the cp2k software, two different builds for the two variants of errors have been made and Langevin dynamics were performed on those builds.
 
-Whereas the latter settings were used to compute our reference data, in total six different cases of fixed-point and floating-point errors were investigated by varying the exponent $\beta$ between 0 (huge noise) and 3 (tiny noise), \christian{ that is, ranging from the same magnitude as the force to $1/1000$ of the force.} %tested and for the equation representing fixed point error, the corresponding \(\beta\) value that was used were 1, 2 and 3. Similarly three different cases of floating point errors were tested and for the equation representing floating point error, the corresponding \(\beta\) value that was used were 0, 1, 2.
-As already alluded to above \christian{This should not only be alluded to but clearly stated before, see comment at end of Section~\ref{sec:methodology}}, the additive white noise is compensated by means of Eq.~\ref{modLangevin} by varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the equipartition theorem
-\begin{equation}
-\left\langle \frac{1}{2} M_I \dot{\textbf{R}}_{I} \right\rangle = \frac{3}{2} k_B T
-\end{equation}
-is satisfied \cite{Berendsen,TDKwater,TDKrev}. Alternatively, $\gamma_N$ can be computed by integrating the autocorrelation function of the additive white noise \cite{RZK}.
+Whereas the latter settings were used to compute our reference data, in total six different cases of fixed-point and floating-point errors were investigated by varying the exponent $\beta$ between 0 (huge noise) and 3 (tiny noise) that is, ranging from $1/1000$ of the physical force up to the same magnitude as the force. %tested and for the equation representing fixed point error, the corresponding \(\beta\) value that was used were 1, 2 and 3. Similarly three different cases of floating point errors were tested and for the equation representing floating point error, the corresponding \(\beta\) value that was used were 0, 1, 2.
+As already alluded to above, the additive white noise is compensated by means of Eq.~\ref{modLangevin} by varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the the equipartition theorem of Eq.~\ref{EquiPartTheorem} is satisfied \cite{Berendsen,TDKwater,TDKrev}. Alternatively, $\gamma_N$ can be computed by integrating the autocorrelation function of the additive white noise \cite{RZK}.
 %As discussed earlier in the methodology section, a separate frictional coefficient is necessary to compensate for the computational error that was  introduced in the builds. This frictional coefficient is managed through the parameter called shadow \(\gamma\) and this parameter is available in the langevin section of the cp2k software.
 In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for fixed-point and \textit{\(\gamma_N^{float}\)} for floating-point errors are reported as a function of \textit{\(\beta\)}. %Units for \(\gamma\) and shadow \(\gamma\) is \(fs^{-1}\).
 %\begin{table}[h!]
@@ -334,7 +335,7 @@ As can be directly deduced from Table~\ref{tab:gamma}, the smaller values of $\g
 \caption{\label{Fig1}
 Partial pair correlation function for liquid Si at 3000~K with noisy forces introduced by fixed-point errors of magnitude $10^{-3}$ (blue), $10^{-2}$ (green) and $10^{-1}$ (red). For comparison, the results, as obtained by our reference calculations without noise, are shown in black.
 } \end{figure}
-In Figs.~\ref{Fig1} and \ref{Fig2}, the Si-Si partial pair-correlation function $g(r)$, as computed using an optimal scheme for orthorombic systems \cite{KAF}, is shown for different values of $\beta$. %In Fig. 1 we show the pair correlation functions g(r) calculated with noisy forces generated from fixed-point errors. In Fig. 2 we show the pair correlation functions g(r) calculated with noisy forces generated with floating-point errors.
+In Figs.~\ref{Fig1} and \ref{Fig2}, the Si-Si partial pair-correlation function $g(r)$, which describes how the particle-density varies as a function of distance from a reference particle (atoms, molecules, colloids, etc.), as computed using an optimal scheme for orthorombic systems \cite{KAF}, is shown for different values of $\beta$. %In Fig. 1 we show the pair correlation functions g(r) calculated with noisy forces generated from fixed-point errors. In Fig. 2 we show the pair correlation functions g(r) calculated with noisy forces generated with floating-point errors.
 As can be seen, for both fixed-point and floating-point errors, the agreement with our reference calculation is nearly perfect up to the highest noise we have investigated. As already anticipated earlier, the usage of floating-point errors is not only able to tolerate higher noise levels, but is also throughout more accurate.
 \begin{figure}%[h!]
 \begin{center}
@@ -342,17 +343,17 @@ As can be seen, for both fixed-point and floating-point errors, the agreement wi
 {figures/Floating_point_rdf2.pdf}
 \end{center}
 \caption{\label{Fig2}
-Partial pair correlation function for liquid Si at 3000~K with noisy forces introduced by floating-point errors of magnitude $10^{-2}$ (blue), $10^{-1}$ (green) and $10^{-0}$ (red). For comparison, the results, as obtained by our reference calculations without noise, are shown in black. \christian{Explain in plain English what this figure should illustrate and how it relates to the real world. To my understanding the graph shows the distribution of distances between two Si atoms, hence, the peak of the curve points out the average interatomic distances in Si. Is this correct?}
+Partial pair correlation function for liquid Si at 3000~K with noisy forces introduced by floating-point errors of magnitude $10^{-2}$ (blue), $10^{-1}$ (green) and $10^{-0}$ (red). For comparison, the results, as obtained by our reference calculations without noise, are shown in black. 
 } \end{figure}
 
-To verify that the sampling is indeed canonical, in Fig.~\ref{Fig3} the actual kinetic energy distribution as obtained by our simulations using noisy forces and compared to the analytic Maxwell distribution. It is evident that if sampled long enough, not only the mean value, but also the the distribution tails are in excellent agreement with the exact Maxwellian kinetic energy distribution.
+To verify that the sampling is indeed canonical, in Fig.~\ref{Fig3} the actual kinetic energy distribution as obtained by our simulations using noisy forces and compared to the analytic Maxwell distribution. It is evident that if sampled long enough, not only the mean value, but also the the distribution tails are in excellent agreement with the exact Maxwellian kinetic energy distribution, which demonstrates that we are indeed performing a canonical sampling. 
 \begin{figure}%[h!]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
 {figures/maxwelldistribution_new.pdf}
 \end{center}
 \caption{\label{Fig3}
-Kinetic energy distribution of liquid Si at 3000~K, as obtained by our simulations using noisy forces (circles). For comparison the analytic Maxwell distribution is also shown (line). \christian{Explain expected results and meaning in plain English}
+Kinetic energy distribution of liquid Si at 3000~K, as obtained by our simulations using noisy forces (circles). For comparison the analytic Maxwell distribution is also shown (line). 
 } \end{figure}
 To further assess the accuracy of the present method, we expand the autocorrelation of the noisy forces, i.e.
 %\begin{equation}
@@ -375,7 +376,7 @@ To further assess the accuracy of the present method, we expand the autocorrelat
 %\end{equation}
 Since the cross correlation terms between the exact force and the additive white noise is vanishing due to Eq.~\ref{CrossCorr}, comparing the autocorrelation of the noisy forces $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ with the autocorrelation of the exact forces $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$ permits to assess the localization of the last term of Eq.~\ref{AutoCorr}.
 %Since, due to fluctuation-dissipation theorem, the last term of Eq.~\ref{AutoCorr} corresponds to a $\delta$-function, comparing the autocorrelation of the noisy forces $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ with the autocorrelation of the exact forces $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$ permits to assess the cross correlation terms between the exact force and the additive white noise.
-The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is essentially identical to $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$, as can be seen in Fig.~\ref{Fig4}, implies that $\langle \mathbf{\Xi } _{I}^{N}(0) \mathbf{\Xi } _{I}^{N}(t)\rangle$ is very close to a $\delta$-function as required by the fluctuation-dissipation theorem in order to ensure an accurate canonical sampling of the Boltzmann distribution.
+The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is essentially identical to $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$, as can be seen in Fig.~\ref{Fig4}, implies that $\langle \mathbf{\Xi } _{I}^{N}(0) \mathbf{\Xi } _{I}^{N}(t)\rangle$ is very close to a $\delta$-function as required by the fluctuation-dissipation theorem in order to ensure an accurate canonical sampling of the Boltzmann distribution. In other words, from this it follows that our initial assumption underlying Eq.~\ref{modLangevin}, to model the noise due to a low-precision calculation as an additive white noise channel, is justified. 
 \begin{figure}%[h!]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
@@ -383,7 +384,7 @@ The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is ess
 \end{center}
 \caption{\label{Fig4}
 The Autocorrelation of the noisy forces \(
-\left \langle \textbf{F}_{I}^{N}\left ( 0 \right ) \textbf{F}_{I}^{N}\left ( t \right )\right \rangle \)(line), which are compared to the autocorrelation of the exact forces \( \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle \)(circles). \christian{Explain expected results and meaning in plain English}
+\left \langle \textbf{F}_{I}^{N}\left ( 0 \right ) \textbf{F}_{I}^{N}\left ( t \right )\right \rangle \)(line), which are compared to the autocorrelation of the exact forces \( \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle \)(circles). 
 } \end{figure}
 
 %If the random value that was used to generate the computational error is chosen in the range [0,1] instead of [-0.5,0.5], we encounter a phenomenon called "Flying Ice Cube" \cite{flyingIceCube} during our MD simulations.
@@ -393,7 +394,7 @@ The Autocorrelation of the noisy forces \(
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:conclusion}
 %To summarize, in this paper, we described the method to compensate for the computational errors that are introduced when running the MD code in FPGA or GPU using approximate computing technique.
-We conclude by noting that the present method have been recently implemented in the universal force engine i-Pi \cite{iPi}, which can be generally applied to all sorts of forces affected by stochastic noise such as those computed by GPUs or other hardware accelerators \cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, and potentially even quantum computing devices \cite{Steane, Knill, Blatt, Chow}. The possibility to apply similar ideas to N-body simulations \christian{This is very vague. Expalin in more detail.} \cite{White, Makino} is to be underlined and will be presented elsewhere.
+We conclude by noting that the present method have been recently implemented in the universal force engine i-Pi \cite{iPi}, which can be generally applied to all sorts of forces affected by stochastic noise such as those computed by GPUs or other hardware accelerators \cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, and potentially even quantum computing devices \cite{Steane, Knill, Blatt, Chow}. The possibility to apply similar ideas to N-body simulations \cite{White, Makino} is to be underlined and will be presented elsewhere.
 
 
 
