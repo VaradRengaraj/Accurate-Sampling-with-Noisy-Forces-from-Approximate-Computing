@@ -1,4 +1,4 @@
-\documentclass[format=acmsmall,review,authorversion,timestamp]{acmart}
+\documentclass[format=acmsmall,review,timestamp,urlbreakonhyphens]{acmart}
 
 %\documentclass[aps,pre,twocolumn,showpacs,preprintnumbers,amsmath,amssymb]{revtex4-1}
 %\documentclass[preprint,showpacs,preprintnumbers,amsmath,amssymb]{revtex4}
@@ -39,8 +39,8 @@
 \DeclareMathOperator{\diag}{diag}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
-\newcommand{\michael}[1]{\textcolor{red}{Michael: #1}}
-\newcommand{\christian}[1]{\textcolor{red}{Christian: #1}}
+% \newcommand{\michael}[1]{\textcolor{red}{Michael: #1}}
+% \newcommand{\christian}[1]{\textcolor{red}{Christian: #1}}
 
 %Try to avoid widows and orphans
 %\usepackage[all]{nowidow}
@@ -55,11 +55,11 @@
 \acmJournal{TOMS}
 
 % TODO update after acceptance
-\acmVolume{99}
-\acmNumber{88}
-\acmArticle{77}
-\acmYear{20XX}
-\acmMonth{6}
+\acmVolume{0}
+\acmNumber{0}
+\acmArticle{0}
+\acmYear{0000}
+\acmMonth{0}
 
 \citestyle{acmauthoryear}
 
@@ -83,25 +83,52 @@ A major limitation, however, is that the high efficiency in terms of performance
 \title{Accurate Sampling with Noisy Forces from Approximate Computing}
 
 \author{Varadarajan Rengaraj}
-%\orcid{}
-\affiliation{Dynamics of Condensed Matter and Department of Computer Science, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\affiliation{%
+  \institution{Paderborn University}
+  \department{Dynamics of Condensed Matter}
+  \department{Department of Computer Science}
+  \streetaddress{Warburger Str. 100}
+  \city{Paderborn}
+  \postcode{33098}
+  \country{Germany}}
 \email{rengaraj@campus.uni-paderborn.de}
 
 \author{Michael Lass}
-%\orcid{}
-\affiliation{Department of Computer Science Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
-\affiliation{Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\orcid{0000-0002-5708-7632}
+\affiliation{%
+  \institution{Paderborn University}
+  \department{Department of Computer Science}
+  \department{Paderborn Center for Parallel Computing}
+  \streetaddress{Warburger Str. 100}
+  \city{Paderborn}
+  \postcode{33098}
+  \country{Germany}}
 \email{michael.lass@uni-paderborn.de}
 
 \author{Christian Plessl}
 \orcid{0000-0001-5728-9982}
-\affiliation{Department of Computer Science Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
-\affiliation{Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, D-33098 Paderborn, Germany}
+\affiliation{%
+  \institution{Paderborn University}
+  \department{Department of Computer Science}
+  \department{Paderborn Center for Parallel Computing}
+  \streetaddress{Warburger Str. 100}
+  \city{Paderborn}
+  \postcode{33098}
+  \country{Germany}}
 \email{christian.plessl@uni-paderborn.de}
 
 \author{Thomas D. K\"uhne}
 \orcid{0000-0001-5471-2407}
-\affiliation{Dynamics of Condensed Matter and Center for Sustainable Systems Design, Chair of Theoretical Chemistry, University of Paderborn, Warburger Str. 100, D-33098 Paderborn, Germany}
+\affiliation{%
+  \institution{Paderborn University}
+  \department{Dynamics of Condensed Matter}
+  \department{Center for Sustainable Systems Design}
+  \department{Paderborn Center for Parallel Computing}
+  \position{Chair of Theoretical Chemistry}
+  \streetaddress{Warburger Str. 100}
+  \city{Paderborn}
+  \postcode{33098}
+  \country{Germany}}
 \email{tdkuehne@mail.upb.de}
 
 
@@ -253,10 +280,10 @@ M_{I}\ddot{\textbf{R}}_{I} = \textbf{F}_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}
 \end{equation}
 which will be used throughout the remaining of this paper. This is to say that the noise, as originating from a low-precision computation, can be though of as the additive white noise of a thitherto unknown damping coefficient $\gamma_N$, which satisfies the fluctuation-dissipation theorem of Eq.~\ref{FDT}.  The specific value of $\gamma_N$ is determined in such a way so as to generate the correct average temperature, as measured by the equipartition theorem
 \begin{equation}
-\left\langle \frac{1}{2} M_I \dot{\textbf{R}}_{I} \right\rangle = \frac{3}{2} k_B T. 
+\left\langle \frac{1}{2} M_I \dot{\textbf{R}}_{I} \right\rangle = \frac{3}{2} k_B T.
 \label{EquiPartTheorem}
 \end{equation}
-%or in other words that the mean kinetic energy corresponds to the correct temperature $T$. 
+%or in other words that the mean kinetic energy corresponds to the correct temperature $T$.
 
 %We further present in this paper the method to effectively compensate for the additive noise introduced on the force using the existing langevin dynamics framework.
 
@@ -343,17 +370,17 @@ As can be seen, for both fixed-point and floating-point errors, the agreement wi
 {figures/Floating_point_rdf2.pdf}
 \end{center}
 \caption{\label{Fig2}
-Partial pair correlation function for liquid Si at 3000~K with noisy forces introduced by floating-point errors of magnitude $10^{-2}$ (blue), $10^{-1}$ (green) and $10^{-0}$ (red). For comparison, the results, as obtained by our reference calculations without noise, are shown in black. 
+Partial pair correlation function for liquid Si at 3000~K with noisy forces introduced by floating-point errors of magnitude $10^{-2}$ (blue), $10^{-1}$ (green) and $10^{-0}$ (red). For comparison, the results, as obtained by our reference calculations without noise, are shown in black.
 } \end{figure}
 
-To verify that the sampling is indeed canonical, in Fig.~\ref{Fig3} the actual kinetic energy distribution as obtained by our simulations using noisy forces and compared to the analytic Maxwell distribution. It is evident that if sampled long enough, not only the mean value, but also the the distribution tails are in excellent agreement with the exact Maxwellian kinetic energy distribution, which demonstrates that we are indeed performing a canonical sampling. 
+To verify that the sampling is indeed canonical, in Fig.~\ref{Fig3} the actual kinetic energy distribution as obtained by our simulations using noisy forces and compared to the analytic Maxwell distribution. It is evident that if sampled long enough, not only the mean value, but also the the distribution tails are in excellent agreement with the exact Maxwellian kinetic energy distribution, which demonstrates that we are indeed performing a canonical sampling.
 \begin{figure}%[h!]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
 {figures/maxwelldistribution_new.pdf}
 \end{center}
 \caption{\label{Fig3}
-Kinetic energy distribution of liquid Si at 3000~K, as obtained by our simulations using noisy forces (circles). For comparison the analytic Maxwell distribution is also shown (line). 
+Kinetic energy distribution of liquid Si at 3000~K, as obtained by our simulations using noisy forces (circles). For comparison the analytic Maxwell distribution is also shown (line).
 } \end{figure}
 To further assess the accuracy of the present method, we expand the autocorrelation of the noisy forces, i.e.
 %\begin{equation}
@@ -376,7 +403,7 @@ To further assess the accuracy of the present method, we expand the autocorrelat
 %\end{equation}
 Since the cross correlation terms between the exact force and the additive white noise is vanishing due to Eq.~\ref{CrossCorr}, comparing the autocorrelation of the noisy forces $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ with the autocorrelation of the exact forces $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$ permits to assess the localization of the last term of Eq.~\ref{AutoCorr}.
 %Since, due to fluctuation-dissipation theorem, the last term of Eq.~\ref{AutoCorr} corresponds to a $\delta$-function, comparing the autocorrelation of the noisy forces $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ with the autocorrelation of the exact forces $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$ permits to assess the cross correlation terms between the exact force and the additive white noise.
-The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is essentially identical to $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$, as can be seen in Fig.~\ref{Fig4}, implies that $\langle \mathbf{\Xi } _{I}^{N}(0) \mathbf{\Xi } _{I}^{N}(t)\rangle$ is very close to a $\delta$-function as required by the fluctuation-dissipation theorem in order to ensure an accurate canonical sampling of the Boltzmann distribution. In other words, from this it follows that our initial assumption underlying Eq.~\ref{modLangevin}, to model the noise due to a low-precision calculation as an additive white noise channel, is justified. 
+The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is essentially identical to $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$, as can be seen in Fig.~\ref{Fig4}, implies that $\langle \mathbf{\Xi } _{I}^{N}(0) \mathbf{\Xi } _{I}^{N}(t)\rangle$ is very close to a $\delta$-function as required by the fluctuation-dissipation theorem in order to ensure an accurate canonical sampling of the Boltzmann distribution. In other words, from this it follows that our initial assumption underlying Eq.~\ref{modLangevin}, to model the noise due to a low-precision calculation as an additive white noise channel, is justified.
 \begin{figure}%[h!]
 \begin{center}
 \includegraphics[width=0.475\textwidth]
@@ -384,7 +411,7 @@ The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is ess
 \end{center}
 \caption{\label{Fig4}
 The Autocorrelation of the noisy forces \(
-\left \langle \textbf{F}_{I}^{N}\left ( 0 \right ) \textbf{F}_{I}^{N}\left ( t \right )\right \rangle \)(line), which are compared to the autocorrelation of the exact forces \( \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle \)(circles). 
+\left \langle \textbf{F}_{I}^{N}\left ( 0 \right ) \textbf{F}_{I}^{N}\left ( t \right )\right \rangle \)(line), which are compared to the autocorrelation of the exact forces \( \left \langle \textbf{F}_{I}\left ( 0 \right ) \textbf{F}_{I}\left ( t \right )\right \rangle \)(circles).
 } \end{figure}
 
 %If the random value that was used to generate the computational error is chosen in the range [0,1] instead of [-0.5,0.5], we encounter a phenomenon called "Flying Ice Cube" \cite{flyingIceCube} during our MD simulations.
