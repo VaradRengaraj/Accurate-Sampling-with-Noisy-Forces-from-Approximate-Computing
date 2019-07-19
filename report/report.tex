@@ -1,4 +1,5 @@
-\documentclass[format=acmsmall,review,timestamp,urlbreakonhyphens]{acmart}
+%\documentclass[format=acmsmall,review,authorversion,timestamp,urlbreakonhyphens]{acmart}
+\documentclass[format=acmsmall,urlbreakonhyphens]{acmart}
 
 %\documentclass[aps,pre,twocolumn,showpacs,preprintnumbers,amsmath,amssymb]{revtex4-1}
 %\documentclass[preprint,showpacs,preprintnumbers,amsmath,amssymb]{revtex4}
@@ -217,19 +218,19 @@ For example, iterative methods can exhibit resilience against low precision arit
 Mainly driven by the growing popularity of artificial neural networks \cite{Gupta2015}, we can observe growing support of low-precision data types %, such as half-precision floating point and bfloat16,
 in hardware accelerators.
 %
-In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, \texttt{bfloat16} provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon} and Intel AgileX FPGAs. A list of commonly used data types, together with the corresponding number of bits used to represent the exponent and the mantissa (incl. the implicit bit), are shown in Table~\ref{tab:float}.
+In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, \texttt{bfloat16} provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon} and Intel AgileX FPGAs. A list of commonly used data types, together with the corresponding number of bits used to store the exponent and the mantissa, are shown in Table~\ref{tab:float}.
 %In recent time we see increased use of floating-point variants different to single-precision and double-precision.
 \begin{table}
   \caption{Common floating-point formats}
   \label{tab:float}
-  \begin{tabular}{lrr}
-    Type & exponent bits & mantissa bits \\
+  \begin{tabular}{lrrr}
+    Type & sign bit & exponent bits & mantissa bits \\
     \hline
-    IEEE 754 Quadruple-precision & 15 & 113 \\
-    IEEE 754 Double-precision & 11 & 53 \\
-    IEEE 754 Single-precision & 8 & 24 \\
-    IEEE 754 Half-precision & 5 & 11 \\
-    Bfloat16 (truncated IEEE single-precision)& 8 & 8
+    IEEE 754 Quadruple-precision & 1 & 15 & 112 \\
+    IEEE 754 Double-precision & 1 & 11 & 52 \\
+    IEEE 754 Single-precision & 1 & 8 & 23 \\
+    IEEE 754 Half-precision & 1 & 5 & 10 \\
+    Bfloat16 (truncated IEEE single-precision) & 1 & 8 & 7
   \end{tabular}
 \end{table}
 
