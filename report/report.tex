@@ -1,4 +1,4 @@
-%\documentclass[format=acmsmall,review,authorversion,timestamp,urlbreakonhyphens]{acmart}
+%\documentclass[format=acmsmall,authorversion,nonacm,timestamp,urlbreakonhyphens]{acmart}
 \documentclass[format=acmsmall,urlbreakonhyphens]{acmart}
 
 %\documentclass[aps,pre,twocolumn,showpacs,preprintnumbers,amsmath,amssymb]{revtex4-1}
@@ -468,23 +468,8 @@ The Autocorrelation of the noisy forces \(
 We conclude by noting that the present method has been recently implemented in the universal force engine i-PI \cite{iPi}, which can be generally applied to all sorts of forces affected by stochastic noise such as those computed by GPUs or other hardware accelerators~\cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, and potentially even quantum computing devices \cite{Steane, Knill, Blatt, Chow}. The possibility to apply similar ideas to N-body simulations~\cite{White, Makino} and to combine it with further algorithmic approximations~\cite{LassAC} is to be underlined and will be presented elsewhere.
 
 
-
-% TODO write grant sponsors.. with special environment, see acmart.pdf page 23
-%\begin{acks}
-%  The authors would like to thank Dr. Yuhua Li for providing the
-%  matlab code of the \textit{BEPS} method.
-%  The authors would also like to thank the anonymous referees for
-%  their valuable comments and helpful suggestions. This work is
-%  supported by the \grantsponsor{GS501100001809}{National Natural
-%  Science Foundation of
-%  China}{https://doi.org/10.13039/501100001809} under Grant
-%  No.: ̃\grantnum{GS501100001809}{61273304}
-%  and ̃\grantnum[http://www.nnsf.cn/youngscientists]{GS501100001809}{Young
-%  Scientists’ Support Program}.
-%\end{acks}
-
 \begin{acks}
-The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No 716142).
+The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the \grantsponsor{GS:ERC}{European Research Council (ERC)}{https://erc.europa.eu/} under the European Union's Horizon 2020 research and innovation programme (Grant Agreement No.:~\grantnum{GS:ERC}{716142}).
 \end{acks}
 
 % The next two lines define the bibliography style to be used, and the bibliography file.
