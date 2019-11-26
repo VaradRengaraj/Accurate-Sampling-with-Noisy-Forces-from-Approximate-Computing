@@ -1,9 +1,5 @@
-%\documentclass[format=acmsmall,authorversion,nonacm,timestamp,urlbreakonhyphens]{acmart}
-\documentclass[format=acmsmall,urlbreakonhyphens]{acmart}
-
-%\documentclass[aps,pre,twocolumn,showpacs,preprintnumbers,amsmath,amssymb]{revtex4-1}
-%\documentclass[preprint,showpacs,preprintnumbers,amsmath,amssymb]{revtex4}
-
+%\documentclass[manuscript]{elsarticle}
+\documentclass[preprint]{elsarticle}
 
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
@@ -19,15 +15,11 @@
 \usepackage{bbold}
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
-%\usepackage[OT1]{fontenc}
 \usepackage{longtable}
-%\usepackage[dvips]{graphicx}
 \usepackage{xspace}
 \usepackage{bbm}
 \usepackage[all]{xy}
 \usepackage{siunitx}
-%\usepackage{slashbox}
-%\usepackage[justification=centering]{caption}
 \providecommand{\begeq}[1]{\begin{equation}#1\end{equation}}
 \DeclareMathOperator{\tr}{tr}
 \providecommand{\norm}[1]{\lVert#1\rVert}
@@ -45,7 +37,6 @@
 % \newcommand{\christian}[1]{\textcolor{red}{Christian: #1}}
 
 %Try to avoid widows and orphans
-%\usepackage[all]{nowidow}
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
@@ -54,133 +45,34 @@
 
 \begin{document}
 
-\acmJournal{TOMS}
+\title{Accurate Sampling with Noisy Forces from Approximate Computing}
 
-% TODO update after acceptance
-\acmVolume{0}
-\acmNumber{0}
-\acmArticle{0}
-\acmYear{0000}
-\acmMonth{0}
-
-\citestyle{acmauthoryear}
-
-\keywords{approximate computing, CP2K, fluctuation-dissipation theorem, FPGA, i-PI, low precision arithmetic}
-
-
-\begin{CCSXML}
-<ccs2012>
-<concept>
-<concept_id>10010147.10010341.10010349.10010350</concept_id>
-<concept_desc>Computing methodologies~Quantum mechanic simulation</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010147.10010341.10010349.10010351</concept_id>
-<concept_desc>Computing methodologies~Molecular simulation</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010405.10010432.10010436</concept_id>
-<concept_desc>Applied computing~Chemistry</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010405.10010432.10010441</concept_id>
-<concept_desc>Applied computing~Physics</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10003752.10003809.10003636.10003813</concept_id>
-<concept_desc>Theory of computation~Rounding techniques</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010583.10010786.10010787.10010788</concept_id>
-<concept_desc>Hardware~Emerging architectures</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-</ccs2012>
-\end{CCSXML}
-
-\ccsdesc[300]{Computing methodologies~Quantum mechanic simulation}
-\ccsdesc[300]{Computing methodologies~Molecular simulation}
-\ccsdesc[300]{Applied computing~Chemistry}
-\ccsdesc[300]{Applied computing~Physics}
-\ccsdesc[300]{Theory of computation~Rounding techniques}
-\ccsdesc[300]{Hardware~Emerging architectures}
-
-
-
-% abstract must preced title in acmart style
 \begin{abstract}
 In scientific computing, the acceleration of atomistic computer simulations by means of custom hardware is finding ever growing application.
 %Accelerating atomistic computer simulations using hardware acceleration is finding ever growing application in scientific computing.
 A major limitation, however, is that the high efficiency in terms of performance and low power consumption entails the massive usage of low-precision computing units. Here, based on the approximate computing paradigm, we present an algorithmic method to rigorously compensate for numerical inaccuracies due to low-accuracy arithmetic operations, yet still obtaining exact expectation values using a properly modified Langevin-type equation. %By this, we lay the foundation for the development of efficient MD accelerators.
 \end{abstract}
 
-
-
 \title{Accurate Sampling with Noisy Forces from Approximate Computing}
 
-\author{Varadarajan Rengaraj}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Dynamics of Condensed Matter}
-  \department{Department of Computer Science}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{rengaraj@campus.uni-paderborn.de}
+% \keywords{approximate computing, CP2K, fluctuation-dissipation theorem, FPGA, i-PI, low precision arithmetic}
 
-\author{Michael Lass}
-\orcid{0000-0002-5708-7632}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Department of Computer Science}
-  \department{Paderborn Center for Parallel Computing}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{michael.lass@uni-paderborn.de}
+\author[dcm,cs]{Varadarajan Rengaraj}
+\ead{rengaraj@campus.uni-paderborn.de}
+\author[cs,pc2]{Michael Lass\corref{corauthor}}
+\ead{michael.lass@uni-paderborn.de}
+\author[cs,pc2]{Christian Plessl}
+\ead{christian.plessl@uni-paderborn.de}
+\author[dcm,pc2,cssd]{Thomas D. K\"uhne}
+\ead{tdkuehne@mail.upb.de}
 
-\author{Christian Plessl}
-\orcid{0000-0001-5728-9982}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Department of Computer Science}
-  \department{Paderborn Center for Parallel Computing}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{christian.plessl@uni-paderborn.de}
+\cortext[corauthor]{Corresponding author}
 
-\author{Thomas D. K\"uhne}
-\orcid{0000-0001-5471-2407}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Dynamics of Condensed Matter}
-  \department{Center for Sustainable Systems Design}
-  \department{Paderborn Center for Parallel Computing}
-  \position{Chair of Theoretical Chemistry}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{tdkuehne@mail.upb.de}
+\address[dcm]{Dynamics of Condensed Matter, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
+\address[cs]{Department of Computer Science, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
+\address[pc2]{Paderborn Center for Parallel Computing, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
+\address[cssd]{Center for Sustainable Systems Design, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
 
-
-%\date{\today}% It is always \today
-
-             %\preprint{APS/123-QED}
-
-
-%A Valid PACS numbers may be entered using the \verb+\pacs{#1}+ command.
-%\pacs{31.15.-p, 31.15.Ew, 71.15.-m, 71.15.Pd}% PACS, the Physics and Astronomy
-                             % Classification Scheme.
 \maketitle
 
 
@@ -468,12 +360,12 @@ The Autocorrelation of the noisy forces \(
 We conclude by noting that the present method has been recently implemented in the universal force engine i-PI \cite{iPi}, which can be generally applied to all sorts of forces affected by stochastic noise such as those computed by GPUs or other hardware accelerators~\cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, and potentially even quantum computing devices \cite{Steane, Knill, Blatt, Chow}. The possibility to apply similar ideas to N-body simulations~\cite{White, Makino} and to combine it with further algorithmic approximations~\cite{LassAC} is to be underlined and will be presented elsewhere.
 
 
-\begin{acks}
-The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the \grantsponsor{GS:ERC}{European Research Council (ERC)}{https://erc.europa.eu/} under the European Union's Horizon 2020 research and innovation programme (Grant Agreement No.:~\grantnum{GS:ERC}{716142}).
-\end{acks}
+% \begin{acks}
+% The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the \grantsponsor{GS:ERC}{European Research Council (ERC)}{https://erc.europa.eu/} under the European Union's Horizon 2020 research and innovation programme (Grant Agreement No.:~\grantnum{GS:ERC}{716142}).
+% \end{acks}
 
 % The next two lines define the bibliography style to be used, and the bibliography file.
-\bibliographystyle{ACM-Reference-Format}
+\bibliographystyle{elsarticle-num}
 \bibliography{report}
 
 \end{document}
