@@ -1,47 +1,13 @@
-%\documentclass[manuscript]{elsarticle}
 \documentclass[preprint]{elsarticle}
 
-\usepackage{graphicx}% Include figure files
-\usepackage{dcolumn}% Align table columns on decimal point
-\usepackage{bm}% bold math
-
-\usepackage{xcolor}
-\PassOptionsToPackage{dvipsnames}{xcolor}
-
-\usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{bbold}
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{longtable}
-\usepackage{xspace}
-\usepackage{bbm}
-\usepackage[all]{xy}
-\usepackage{siunitx}
-\providecommand{\begeq}[1]{\begin{equation}#1\end{equation}}
-\DeclareMathOperator{\tr}{tr}
-\providecommand{\norm}[1]{\lVert#1\rVert}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{defi}{Definition}
-\newtheorem{rem}{Remark}
-\newtheorem{conj}{Conjecture}
-\newtheorem{prop}{Proposition}
-\DeclareMathOperator{\con}{cond}
-\DeclareMathOperator{\diag}{diag}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-
-% \newcommand{\michael}[1]{\textcolor{olive}{Michael: #1}}
-% \newcommand{\christian}[1]{\textcolor{red}{Christian: #1}}
 
 %Try to avoid widows and orphans
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
-
-
 
 \begin{document}
 
@@ -53,9 +19,9 @@ In scientific computing, the acceleration of atomistic computer simulations by m
 A major limitation, however, is that the high efficiency in terms of performance and low power consumption entails the massive usage of low-precision computing units. Here, based on the approximate computing paradigm, we present an algorithmic method to rigorously compensate for numerical inaccuracies due to low-accuracy arithmetic operations, yet still obtaining exact expectation values using a properly modified Langevin-type equation. %By this, we lay the foundation for the development of efficient MD accelerators.
 \end{abstract}
 
-\title{Accurate Sampling with Noisy Forces from Approximate Computing}
-
-% \keywords{approximate computing, CP2K, fluctuation-dissipation theorem, FPGA, i-PI, low precision arithmetic}
+\begin{keyword}
+approximate computing \sep CP2K \sep fluctuation-dissipation theorem \sep FPGA \sep i-PI \sep low precision arithmetic
+\end{keyword}
 
 \author[dcm,cs]{Varadarajan Rengaraj}
 \ead{rengaraj@campus.uni-paderborn.de}
@@ -113,10 +79,11 @@ in hardware accelerators.
 In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, \texttt{bfloat16} provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon} and Intel AgileX FPGAs. A list of commonly used data types, together with the corresponding number of bits used to store the exponent and the mantissa, are shown in Table~\ref{tab:float}.
 %In recent time we see increased use of floating-point variants different to single-precision and double-precision.
 \begin{table}
-  \caption{Common floating-point formats}
+  \caption{Bitwidth of common floating-point formats}
+  \centering
   \label{tab:float}
   \begin{tabular}{lrrr}
-    Type & sign bit & exponent bits & mantissa bits \\
+    Type & sign & exponent & mantissa \\
     \hline
     IEEE 754 Quadruple-precision & 1 & 15 & 112 \\
     IEEE 754 Double-precision & 1 & 11 & 52 \\
@@ -251,6 +218,7 @@ In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for
 %\end{table}
 \begin{table}
   \caption{Values for \textit{\(\gamma_N^{fix}\)} and \textit{\(\gamma_N^{float}\)} as a function of \textit{\(\beta\)}.}
+  \centering
   \label{tab:gamma}
   \begin{tabular}{lrr}
     \textit{\(\beta\)} & \textit{\(\gamma_N^{fix}\)} & \textit{\(\gamma_N^{float}\)} \\
@@ -292,7 +260,7 @@ In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for
 As can be directly deduced from Table~\ref{tab:gamma}, the smaller values of $\gamma_N$ for a given $\beta$ immediately suggest the higher noise resilience when using floating-point as compared to fixed-point numbers.
 \begin{figure}%[h!]
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {figures/Fixed_point_rdf2.pdf}
 \end{center}
 \caption{\label{Fig1}
@@ -302,7 +270,7 @@ In Figs.~\ref{Fig1} and \ref{Fig2}, the Si-Si partial pair-correlation function 
 As can be seen, for both fixed-point and floating-point errors, the agreement with our reference calculation is nearly perfect up to the highest noise we have investigated. As already anticipated earlier, the usage of floating-point errors is not only able to tolerate higher noise levels, but is also throughout more accurate.
 \begin{figure}%[h!]
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {figures/Floating_point_rdf2.pdf}
 \end{center}
 \caption{\label{Fig2}
@@ -312,7 +280,7 @@ Partial pair correlation function for liquid Si at 3000~K with noisy forces intr
 To verify that the sampling is indeed canonical, in Fig.~\ref{Fig3} the actual kinetic energy distribution as obtained by our simulations using noisy forces is depicted and compared to the analytic Maxwell distribution. It is evident that if sampled long enough, not only the mean value, but also the distribution tails are in excellent agreement with the exact Maxwellian kinetic energy distribution, which demonstrates that we are indeed performing a canonical sampling.
 \begin{figure}%[h!]
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {figures/maxwelldistribution_new.pdf}
 \end{center}
 \caption{\label{Fig3}
@@ -342,7 +310,7 @@ Since the cross correlation terms between the exact force and the additive white
 The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is essentially identical to $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$, as can be seen in Fig.~\ref{Fig4}, implies that $\langle \mathbf{\Xi } _{I}^{N}(0) \mathbf{\Xi } _{I}^{N}(t)\rangle$ is very close to a $\delta$-function as required by the fluctuation-dissipation theorem in order to ensure an accurate canonical sampling of the Boltzmann distribution. In other words, from this it follows that our initial assumption underlying Eq.~\ref{modLangevin}, to model the noise due to a low-precision calculation as an additive white noise channel, is justified.
 \begin{figure}%[h!]
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {figures/AutocorrelationPlot_n.pdf}
 \end{center}
 \caption{\label{Fig4}
@@ -359,13 +327,13 @@ The Autocorrelation of the noisy forces \(
 %To summarize, in this paper, we described the method to compensate for the computational errors that are introduced when running the MD code in FPGA or GPU using approximate computing technique.
 We conclude by noting that the present method has been recently implemented in the universal force engine i-PI \cite{iPi}, which can be generally applied to all sorts of forces affected by stochastic noise such as those computed by GPUs or other hardware accelerators~\cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, and potentially even quantum computing devices \cite{Steane, Knill, Blatt, Chow}. The possibility to apply similar ideas to N-body simulations~\cite{White, Makino} and to combine it with further algorithmic approximations~\cite{LassAC} is to be underlined and will be presented elsewhere.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (Grant Agreement No.:~716142).
 
-% \begin{acks}
-% The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the \grantsponsor{GS:ERC}{European Research Council (ERC)}{https://erc.europa.eu/} under the European Union's Horizon 2020 research and innovation programme (Grant Agreement No.:~\grantnum{GS:ERC}{716142}).
-% \end{acks}
-
-% The next two lines define the bibliography style to be used, and the bibliography file.
 \bibliographystyle{elsarticle-num}
+\biboptions{sort&compress}
 \bibliography{report}
 
 \end{document}

@@ -10,5 +10,6 @@
 *.out
 *.sav
 *.synctex.gz
+*.spl
 report.pdf
 reportNotes.bib
