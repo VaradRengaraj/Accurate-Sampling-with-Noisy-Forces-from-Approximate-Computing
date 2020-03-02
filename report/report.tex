@@ -1,155 +1,130 @@
-\documentclass[format=acmsmall,authorversion,nonacm,timestamp,urlbreakonhyphens]{acmart}
+%\documentclass[preprints,article,accept,moreauthors,pdftex]{Definitions/mdpi} 
 
-\usepackage{graphicx}% Include figure files
-\usepackage{dcolumn}% Align table columns on decimal point
-\usepackage{bm}% bold math
+\documentclass[computation,article,submit,moreauthors,pdftex]{Definitions/mdpi} 
 
-\usepackage{xcolor}
-\PassOptionsToPackage{dvipsnames}{xcolor}
-
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{bbold}
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{longtable}
-\usepackage{xspace}
-\usepackage{bbm}
-\usepackage[all]{xy}
-\usepackage{siunitx}
-\providecommand{\begeq}[1]{\begin{equation}#1\end{equation}}
-\DeclareMathOperator{\tr}{tr}
-\providecommand{\norm}[1]{\lVert#1\rVert}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{defi}{Definition}
-\newtheorem{rem}{Remark}
-\newtheorem{conj}{Conjecture}
-\newtheorem{prop}{Proposition}
-\DeclareMathOperator{\con}{cond}
-\DeclareMathOperator{\diag}{diag}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
-%Try to avoid widows and orphans
+
+% If you would like to post an early version of this manuscript as a preprint, you may use preprint as the journal and change 'submit' to 'accept'. The document class line would be, e.g., \documentclass[prepri%nts,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, animals, antibiotics, antibodies, antioxidants, applmech, applsci, arts, asc, asi, atmosphere, atoms, axioms, batteries, bdcc, behavsci , beverages, bioengineering, biology, biomedicines, biomimetics, biomolecules, biosensors, brainsci , buildings, cancers, carbon , catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, children, civileng, cleantechnol, climate, clockssleep, cmd, coatings, colloids, computation, computers, condensedmatter, cosmetics, cryptography, crystals, dairy, data, dentistry, designs , diagnostics, diseases, diversity, drones, econometrics, economies, education, ejbc, ejihpe, electrochem, electronics, endocrines, energies, entropy, environments, epigenomes, est, fermentation, fibers, fire, fishes, fluids, foods, forecasting, forests, fractalfract, futureinternet, futurephys, galaxies, games, gastrointestdisord, gels, genealogy, genes, geohazards, geosciences, geriatrics, hazardousmatters, healthcare, hearts, heritage, highthroughput, horticulturae, humanities, hydrology, ijerph, ijfs, ijgi, ijms, ijtpp, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jcdd, jce, jcm, jcp, jcs, jdb, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmse, jne, jnt, jof, joitmc, jpm, jrfm, jsan, land, languages, laws, life, literature, logistics, lubricants, machines, magnetochemistry, make, marinedrugs, materials, mathematics, mca, medicina, medicines, medsci, membranes, metabolites, metals, microarrays, micromachines, microorganisms, minerals, modelling, molbank, molecules, mps, mti, nanomaterials, ncrna, ijns, neurosci, neuroglia, nitrogen, notspecified, nutrients, oceans, ohbm, optics, particles, pathogens, pharmaceuticals, pharmaceutics, pharmacy, philosophies, photonics, physics, plants, plasma, pollutants, polymers, polysaccharides, preprints , proceedings, processes, prosthesis, proteomes, psych, publications, quantumrep, quaternary, qubs, reactions, recycling, religions, remotesensing, reprodmed, reports, resources, risks, robotics, safety, sci, scipharm, sensors, separations, sexes, signals, sinusitis, smartcities, sna, societies, socsci, soilsystems, sports, standards, stats, surfaces, surgeries, sustainability, sustainableworld, symmetry, systems, technologies, telecom, test, tourismhosp, toxics, toxins, transplantology, tropicalmed, universe, urbansci, vaccines, vehicles, vetsci, vibration, viruses, vision, water, wem, wevj
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, benchmark, book, bookreview, briefreport, casereport, changes, comment, commentary, communication, conceptpaper, conferenceproceedings, correction, conferencereport, expressionofconcern, extendedabstract, meetingreport, creative, datadescriptor, discussion, editorial, essay, erratum, hypothesis, interestingimages, letter, meetingreport, newbookreceived, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, supfile, technicalnote, viewpoint
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{xx}
+\issuenum{1}
+\articlenumber{5}
+\pubyear{2020}
+\copyrightyear{2020}
+%\externaleditor{Academic Editor: name}
+%%\history{Received: date; Accepted: date; Published: date}
+
+%\%updates{yes} % If there is an update available, un-comment this line
+
+\usepackage{amsmath}
+
+% Line breaks in URLs
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+% Try to avoid widows and orphans
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
 
 
+\Title{Accurate Sampling with Noisy Forces from Approximate Computing}
 
-\begin{document}
-
-\citestyle{acmauthoryear}
-
-\keywords{approximate computing, CP2K, fluctuation-dissipation theorem, FPGA, i-PI, low precision arithmetic}
-
-
-\begin{CCSXML}
-<ccs2012>
-<concept>
-<concept_id>10010147.10010341.10010349.10010350</concept_id>
-<concept_desc>Computing methodologies~Quantum mechanic simulation</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010147.10010341.10010349.10010351</concept_id>
-<concept_desc>Computing methodologies~Molecular simulation</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010405.10010432.10010436</concept_id>
-<concept_desc>Applied computing~Chemistry</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010405.10010432.10010441</concept_id>
-<concept_desc>Applied computing~Physics</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10003752.10003809.10003636.10003813</concept_id>
-<concept_desc>Theory of computation~Rounding techniques</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010583.10010786.10010787.10010788</concept_id>
-<concept_desc>Hardware~Emerging architectures</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-</ccs2012>
-\end{CCSXML}
-
-\ccsdesc[300]{Computing methodologies~Quantum mechanic simulation}
-\ccsdesc[300]{Computing methodologies~Molecular simulation}
-\ccsdesc[300]{Applied computing~Chemistry}
-\ccsdesc[300]{Applied computing~Physics}
-\ccsdesc[300]{Theory of computation~Rounding techniques}
-\ccsdesc[300]{Hardware~Emerging architectures}
-
-
-
-\begin{abstract}
+\abstract{
 In scientific computing, the acceleration of atomistic computer simulations by means of custom hardware is finding ever growing application.
 A major limitation, however, is that the high efficiency in terms of performance and low power consumption entails the massive usage of low-precision computing units. Here, based on the approximate computing paradigm, we present an algorithmic method to rigorously compensate for numerical inaccuracies due to low-accuracy arithmetic operations, yet still obtaining exact expectation values using a properly modified Langevin-type equation.
-\end{abstract}
+}
+
+\keyword{
+approximate computing, CP2K, fluctuation-dissipation theorem,  FPGA, i-PI, low-precision arithmetic
+}
+
+% Author Orchid ID: enter ID or remove command
+%\newcommand{\orcidauthorA}{0000-0000-000-000X} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+%\Author{Varadarajan Rengaraj $^{1,\dagger,\ddagger}$\orcidA{}, Firstname Lastname $^{1,\ddagger}$ and Firstname Lastname $^{2,}$*}
+
+\Author{Varadarajan Rengaraj $^{1,3}$, Michael Lass $^{3,4,}$, Christian Plessl $^{3,4}*$, and Thomas D. Kühne $^{1,2}$}
+
+
+% Authors, for metadata in PDF
+\AuthorNames{Varadarajan Rengaraj, Michael Lass, Christian Plessl and Thomas D. Kühne}
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Dynamics of Condensed Matter, Department of Chemistry, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany ;\\
+$^{2}$ \quad Center for Sustainable Systems Design, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany ;\\
+$^{3}$ \quad Department of Computer Science, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany; \\
+$^{4}$ \quad Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany; 
+}
+
+% Contact information of the corresponding author
+\corres{Correspondence: christian.plessl@uni-paderborn.de}
+
+% Current address and/or shared authorship
+\firstnote{Current address: Affiliation 3} 
+%\secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
 
 
 
-\title{Accurate Sampling with Noisy Forces from Approximate Computing}
+%\author[dcm,cs]{Varadarajan Rengaraj}
+%\ead{rengaraj@campus.uni-paderborn.de}
+%\author[cs,pc2]{Michael Lass\corref{corauthor}}
+%\ead{michael.lass@uni-paderborn.de}
+%\author[cs,pc2]{Christian Plessl}
+%\ead{christian.plessl@uni-paderborn.de}
+%\author[dcm,pc2,cssd]{Thomas D. K\"uhne}
+%\ead{tdkuehne@mail.upb.de}
 
-\author{Varadarajan Rengaraj}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Dynamics of Condensed Matter}
-  \department{Department of Computer Science}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{rengaraj@campus.uni-paderborn.de}
+%\cortext[corauthor]{Corresponding author}
 
-\author{Michael Lass}
-\orcid{0000-0002-5708-7632}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Department of Computer Science}
-  \department{Paderborn Center for Parallel Computing}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{michael.lass@uni-paderborn.de}
+%\address[dcm]{Dynamics of Condensed Matter, Department of Chemistry, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
+%\address[cs]{Department of Computer Science, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
+%\address[pc2]{Paderborn Center for Parallel Computing, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
+%\address[cssd]{Center for Sustainable Systems Design, \\ Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany}
 
-\author{Christian Plessl}
-\orcid{0000-0001-5728-9982}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Department of Computer Science}
-  \department{Paderborn Center for Parallel Computing}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{christian.plessl@uni-paderborn.de}
-
-\author{Thomas D. K\"uhne}
-\orcid{0000-0001-5471-2407}
-\affiliation{%
-  \institution{Paderborn University}
-  \department{Dynamics of Condensed Matter}
-  \department{Center for Sustainable Systems Design}
-  \department{Paderborn Center for Parallel Computing}
-  \position{Chair of Theoretical Chemistry}
-  \streetaddress{Warburger Str. 100}
-  \city{Paderborn}
-  \postcode{33098}
-  \country{Germany}}
-\email{tdkuehne@mail.upb.de}
-
-\maketitle
-
+\begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -161,9 +136,11 @@ For a long time newly developed microchips became faster and more efficient over
 While the use of GPUs for scientific applications is relatively widespread \cite{GPUcomp,Binder,Weigel}, the use of ASICs \cite{QCDScience, QCDOC, GrapeScience, Grape} and FPGAs is less common \cite{JanusI, JanusII, Convey, FDTD, Kenter, Galerkin}, but gained attention over the last years.
 In general, to maximize the computational power for a given silicon area, or equivalently minimize the power-consumption per arithmetic operation, more and more computing units are replaced with lower-precision units. This trend is mostly driven by market considerations of the gaming and artificial intelligence industries, which are the target customers of hardware accelerators and naturally do not absolutely rely on full computing accuracy.
 
+
 In the approach presented in this paper, we make effective use of low-precision special-purpose hardware for general-purpose scientific computing by leveraging the approximate computing (AC) paradigm~\cite{KlavikMalossiBekasEtAl2014, PlesslAC}. The general research goal of AC is to devise and explore ingenious techniques to relax the exactness of a calculation to facilitate the design of more powerful and/or more efficient computer systems. However, in scientific computing, where the exactness of all computed results is of paramount importance, attenuating accuracy requirements is not an option. Yet, we will demonstrate that it is nevertheless possible to rigorously compensate for numerical inaccuracies due to low-accuracy arithmetic operations and still obtain exact expectation values as obtained by ensemble averages of a properly modified Langevin equation.
 
 The remainder of the paper is organized as follows. In Section~\ref{sec:ac} we revisit the basic principles of AC before introducing our modified Langevin equation in Section~\ref{sec:methodology}. Thereafter, in Section~\ref{sec:computational}, we describe the computational details of our computational experiments. Our results are presented and discussed in Section~\ref{sec:results} before concluding the paper in Section~\ref{sec:conclusion}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Approximate Computing}
@@ -174,13 +151,14 @@ A basic method of approximation and a key requirement for efficient use of proce
 For example, iterative methods can exhibit resilience against low precision arithmetic as has been shown for the computation of inverse matrix roots~\cite{lass17-esl} and for solving systems of linear equations~\cite{KlavikMalossiBekasEtAl2014,Bekas,Dongarra2017,Dongarra2018}.
 Mainly driven by the growing popularity of artificial neural networks \cite{Gupta2015}, we can observe growing support of low-precision data types
 in hardware accelerators.
-%
 In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In contrast, \texttt{bfloat16} provides the same dynamic range as single-precision, and just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu} and support is announced for future Intel Xeon processors~\cite{xeon} and Intel AgileX FPGAs. A list of commonly used data types, together with the corresponding number of bits used to store the exponent and the mantissa, are shown in Table~\ref{tab:float}.
+
 \begin{table}
-  \caption{Common floating-point formats}
+  \caption{Bitwidth of common floating-point formats}
+  \centering
   \label{tab:float}
   \begin{tabular}{lrrr}
-    Type & sign bit & exponent bits & mantissa bits \\
+    Type & sign & exponent & mantissa \\
     \hline
     IEEE 754 Quadruple-precision & 1 & 15 & 112 \\
     IEEE 754 Double-precision & 1 & 11 & 52 \\
@@ -189,7 +167,6 @@ In fact, recent GPUs targeting the data center have started supporting half-prec
     Bfloat16 (truncated IEEE single-precision) & 1 & 8 & 7
   \end{tabular}
 \end{table}
-
 
 Yet, programmable hardware such as FPGAs, as a platform for custom-built accelerator designs \cite{Strzodka2006, KenterVector, KenterPragma}, can make effective use of all of these, but also entirely custom number formats.
 Developers can specify the number of exponent and mantissa bits and trade off precision against the amount of memory blocks required to store values and the number of logic elements required to perform arithmetic operations on them.
@@ -201,7 +178,7 @@ predefined scaling factor. Calculations are thereby performed using integer arit
 \section{Methodology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:methodology}
-To demonstrate the concept of approximate computing, we introduce white noise to the interatomic forces that are computed while running the MD simulation. In this section, we describe in detail on how we introduce the noise to mimic in software the behaviour that would be observed when running the MD on the actual FPGA or GPU hardware with reduced numerical precision. We classify the computational errors into two types: fixed-point errors, and floating-point errors. Assuming that $\textbf{F}_{I}$ are the exact and $\textbf{F}_{I}^{N}$ the noisy forces from a MD simulations with low precision on an FPGA for instance, fixed-point errors can by modelled by
+To demonstrate the concept of approximate computing, we introduce white noise to the interatomic forces that are computed while running the MD simulation. In this section, we describe in detail how we introduce the noise to mimic in software the behavior that would be observed when running the MD on the actual FPGA or GPU hardware with reduced numerical precision. We classify the computational errors into two types: fixed-point errors, and floating-point errors. Assuming that $\textbf{F}_{I}$ are the exact and $\textbf{F}_{I}^{N}$ the noisy forces from a MD simulations with low precision on an FPGA for instance, fixed-point errors can by modelled by
 
 \begin{equation}
 \textbf{F}_{I}^{N}=
@@ -217,7 +194,9 @@ c_{3} \times 10^{-\beta }\\
 \end{pmatrix}
 ,
 \end{equation}
-whereas floating-point errors are described by
+
+\noindent whereas floating-point errors are described by
+
 \begin{equation}
 \textbf{F}_{I}^{N} =
 \begin{pmatrix}
@@ -232,33 +211,44 @@ c_{3} \times 10^{-(\alpha_3+\beta)}\\
 \end{pmatrix}
 .
 \end{equation}
-Therein, $c_1$, $c_2$ and $c_3$ are random values chosen in the range [-0.5, 0.5], whereas $\text{F}_{I}^{x}$, $\text{F}_{I}^{y}$ and $\text{F}_{I}^{x}$ are the individual force components of $\textbf{F}_{I}$, respectively. The floating-point scaling factor is denoted as $\alpha$ and the magnitude of the applied noise by \(\beta\).
+
+\noindent Therein, $c_1$, $c_2$ and $c_3$ are random values chosen in the range [-0.5, 0.5], whereas $\text{F}_{I}^{x}$, $\text{F}_{I}^{y}$ and $\text{F}_{I}^{x}$ are the individual force components of $\textbf{F}_{I}$, respectively. The floating-point scaling factor is denoted as $\alpha$ and the magnitude of the applied noise by \(\beta\).
 
 To rigorously correct the errors introduced by numerical noise we employ a modified Langevin equation. In particular, we model the force as obtained by a low-precision computation on a GPU or FPGA-based accelerator as
+
 \begin{equation} \label{fFPGA}
 \textbf{F}_{I}^{N} = \textbf{F}_{I} + \mathbf{\Xi }_{I}^{N},
 \end{equation}
-where $\mathbf{\Xi }_{I}^{N}$ is an additive white noise for which
+
+\noindent where $\mathbf{\Xi }_{I}^{N}$ is an additive white noise for which
+
 \begin{equation} \label{CrossCorr}
  \left \langle \textbf{F}_{I}\left ( 0 \right ) \mathbf{\Xi } _{I}^{N}\left ( t \right )\right \rangle \cong  0
 \end{equation}
-holds. Throughout, $\langle \cdots \rangle$ denotes Boltzmann-weighted ensemble averages as obtained by the partition function $Z=\text{Tr} \exp(-E/k_B T)$, where $E$ is the potential energy, $k_B$ the so-called Boltzmann constant, and $T$ the temperature. Given that $\mathbf{\Xi }_{I}^{N}$ is unbiased, which in our case is true by its very definition, it is nevertheless possible to accurately sample the Boltzmann distribution by means of a Langevin-type equation \cite{Krajewski,Richters,Karhan}, which in its general form reads as
+
+\noindent holds. Throughout, $\langle \cdots \rangle$ denotes Boltzmann-weighted ensemble averages as obtained by the partition function $Z=\text{Tr} \exp(-E/k_B T)$, where $E$ is the potential energy, $k_B$ the so-called Boltzmann constant, and $T$ the temperature. Given that $\mathbf{\Xi }_{I}^{N}$ is unbiased, which in our case is true by its very definition, it is nevertheless possible to accurately sample the Boltzmann distribution by means of a Langevin-type equation \cite{Krajewski,Richters,Karhan}, which in its general form reads as
+
 \begin{equation} \label{LangevinEq}
 M_{I}\ddot{\textbf{R}}_{I}=\textbf{F}_{I}+\mathbf{\Xi }_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I},
 \end{equation}
-where $\dot{\textbf{R}}_{I}$ are the nuclear coordinates (the dot denotes time derivative), $M_I$ are the nuclear masses and $\gamma _{N}$ is a damping coefficient,
+
+\noindent where $\dot{\textbf{R}}_{I}$ are the nuclear coordinates (the dot denotes time derivative), $M_I$ are the nuclear masses and $\gamma _{N}$ is a damping coefficient,
 which is chosen to compensate for \(\mathbf{\Xi }_{I}^{N}\). The latter, in order to guarantee an accurate canonical sampling, has to obey
 the fluctuation-dissipation theorem
+
 \begin{equation}
 \left \langle \mathbf{\Xi }_{I}^{N}\left ( 0 \right ) \mathbf{\Xi }_{I}^{N}\left ( t \right ) \right \rangle \cong  2 \gamma_{N} M_I k_{B} T  \delta \left ( t \right ).
 \label{FDT}
 \end{equation}
 
-Substituting Eq.~\ref{fFPGA} into Eq.~\ref{LangevinEq} results in the desired modified Langevin equation
+\noindent Substituting Eq.~\ref{fFPGA} into Eq.~\ref{LangevinEq} results in the desired modified Langevin equation
+
 \begin{equation} \label{modLangevin}
 M_{I}\ddot{\textbf{R}}_{I} = \textbf{F}_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I},
 \end{equation}
-which will be used throughout the remaining of this paper. This is to say that the noise, as originating from a low-precision computation, can be thought of as the additive white noise of a thitherto unknown damping coefficient $\gamma_N$, which satisfies the fluctuation-dissipation theorem of Eq.~\ref{FDT}.  The specific value of $\gamma_N$ is determined in such a way so as to generate the correct average temperature, as measured by the equipartition theorem
+
+\noindent which will be used throughout the remaining of this paper. This is to say that the noise, as originating from a low-precision computation, can be thought of as the additive white noise of a thitherto unknown damping coefficient $\gamma_N$, which satisfies the fluctuation-dissipation theorem of Eq.~\ref{FDT}.  The specific value of $\gamma_N$ is determined in such a way so as to generate the correct average temperature, as measured by the equipartition theorem
+
 \begin{equation}
 \left\langle \frac{1}{2} M_I \dot{\textbf{R}}_{I} \right\rangle = \frac{3}{2} k_B T.
 \label{EquiPartTheorem}
@@ -273,10 +263,18 @@ To demonstrate our approach we have implemented it in the CP2K suite of programs
 All simulations consisted of 1000 Si atoms in a 3D-periodic cubic box of length 27.155~\AA. Using the algorithm of Ricci and Ciccotti \cite{Ricci}, Eq.~\ref{LangevinEq} was integrated with a discretized timestep of 1.0~fs with $\gamma_N = 0.001~$fs$^{-1}$.
 
 Whereas the latter settings were used to compute our reference data, in total six different cases of fixed-point and floating-point errors were investigated by varying the exponent $\beta$ between 0 (huge noise) and 3 (tiny noise) that is, ranging from $1/1000$ of the physical force up to the same magnitude as the force.
-As already alluded to above, the additive white noise is compensated by means of Eq.~\ref{modLangevin} by varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the equipartition theorem of Eq.~\ref{EquiPartTheorem} is satisfied \cite{Berendsen,TDKwater,TDKrev}. Alternatively, $\gamma_N$ can be computed by integrating the autocorrelation function of the additive white noise \cite{RZK}.
+As already alluded to above, the additive white noise is compensated via Eq.~\ref{modLangevin} by %varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the equipartition theorem of Eq.~\ref{EquiPartTheorem} is satisfied \cite{Berendsen,TDKwater,TDKrev}. 
+continously adjusting the friction coefficient $\gamma_N$ using the adaptive Langevin technique of Leimkuhler and coworkers so as to satisfy the equipartition theorem of Eq.~\ref{EquiPartTheorem}~\cite{JonesLeimkuhler2011, Mones2015, LeimkuhlerStoltz2019}. In this method, $\gamma_N$ is reinterpreted as a dynamical variable, defined by a negative feedback loop control law as in the Nos\'e-Hoover scheme~\cite{Nose,Hoover}. The corresponding dynamical equation for $\gamma_N$ reads as 
+
+\begin{equation}
+  \dot{\gamma}_N= (2K-n k_B T)/\mathcal{Q}, 
+\end{equation}
+
+\noindent where $K$ is the kinetic energy, $n$ is the number of degrees of freedom and $\mathcal{Q}=k_B T \tau^2_{NH}$ is the Nose-Hoover fictitious mass with time constant $\tau_{NH}$. Alternatively, $\gamma_N$ can be estimated by integrating the autocorrelation function of the additive white noise \cite{RZK}.
 In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for fixed-point and \textit{\(\gamma_N^{float}\)} for floating-point errors are reported as a function of \textit{\(\beta\)}.
 \begin{table}
   \caption{Values for \textit{\(\gamma_N^{fix}\)} and \textit{\(\gamma_N^{float}\)} as a function of \textit{\(\beta\)}.}
+  \centering
   \label{tab:gamma}
   \begin{tabular}{lrr}
     \textit{\(\beta\)} & \textit{\(\gamma_N^{fix}\)} & \textit{\(\gamma_N^{float}\)} \\
@@ -294,9 +292,9 @@ In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:results}
 As can be directly deduced from Table~\ref{tab:gamma}, the smaller values of $\gamma_N$ for a given $\beta$ immediately suggest the higher noise resilience when using floating-point as compared to fixed-point numbers.
-\begin{figure}%[h!]
+\begin{figure}
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {Fixed_point_rdf2.pdf}
 \end{center}
 \caption{\label{Fig1}
@@ -306,7 +304,7 @@ In Figs.~\ref{Fig1} and \ref{Fig2}, the Si-Si partial pair-correlation function 
 As can be seen, for both fixed-point and floating-point errors, the agreement with our reference calculation is nearly perfect up to the highest noise we have investigated. As already anticipated earlier, the usage of floating-point errors is not only able to tolerate higher noise levels, but is also throughout more accurate.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {Floating_point_rdf2.pdf}
 \end{center}
 \caption{\label{Fig2}
@@ -316,13 +314,14 @@ Partial pair correlation function for liquid Si at 3000~K with noisy forces intr
 To verify that the sampling is indeed canonical, in Fig.~\ref{Fig3} the actual kinetic energy distribution as obtained by our simulations using noisy forces is depicted and compared to the analytic Maxwell distribution. It is evident that if sampled long enough, not only the mean value, but also the distribution tails are in excellent agreement with the exact Maxwellian kinetic energy distribution, which demonstrates that we are indeed performing a canonical sampling.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {maxwelldistribution_new.pdf}
 \end{center}
 \caption{\label{Fig3}
 Kinetic energy distribution of liquid Si at 3000~K, as obtained by our simulations using noisy forces (circles). For comparison the analytic Maxwell distribution is also shown (line).
 } \end{figure}
 To further assess the accuracy of the present method, we expand the autocorrelation of the noisy forces, i.e.
+
 \begin{subequations}
 \begin{eqnarray}
   && \left \langle \textbf{F}_{I}^{N}\left ( 0 \right )\textbf{F}_{I}^{N}\left ( t \right )\right \rangle \\
@@ -331,11 +330,12 @@ To further assess the accuracy of the present method, we expand the autocorrelat
   &+& \left \langle \textbf{F}_{I}\left ( t \right ) \mathbf{\Xi } _{I}^{N}\left(0 \right )\right \rangle + \left \langle \mathbf{\Xi } _{I}^{N}\left(0 \right ) \mathbf{\Xi } _{I}^{N}\left(t \right )\right \rangle.  \nonumber
 \end{eqnarray}
 \end{subequations}
-Since the cross correlation terms between the exact force and the additive white noise is vanishing due to Eq.~\ref{CrossCorr}, comparing the autocorrelation of the noisy forces $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ with the autocorrelation of the exact forces $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$ permits to assess the localization of the last term of Eq.~\ref{AutoCorr}.
+
+\noindent Since the cross correlation terms between the exact force and the additive white noise is vanishing due to Eq.~\ref{CrossCorr}, comparing the autocorrelation of the noisy forces $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ with the autocorrelation of the exact forces $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$ permits to assess the localization of the last term of Eq.~\ref{AutoCorr}.
 The fact that $\langle \textbf{F}_{I}^{N}(0)\textbf{F}_{I}^{N}(t)\rangle$ is essentially identical to $\langle \textbf{F}_{I}(0) \textbf{F}_{I}(t)\rangle$, as can be seen in Fig.~\ref{Fig4}, implies that $\langle \mathbf{\Xi } _{I}^{N}(0) \mathbf{\Xi } _{I}^{N}(t)\rangle$ is very close to a $\delta$-function as required by the fluctuation-dissipation theorem in order to ensure an accurate canonical sampling of the Boltzmann distribution. In other words, from this it follows that our initial assumption underlying Eq.~\ref{modLangevin}, to model the noise due to a low-precision calculation as an additive white noise channel, is justified.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.475\textwidth]
+\includegraphics[width=0.8\textwidth]
 {AutocorrelationPlot_n.pdf}
 \end{center}
 \caption{\label{Fig4}
@@ -347,15 +347,21 @@ The Autocorrelation of the noisy forces \(
 \section{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:conclusion}
-%To summarize, in this paper, we described the method to compensate for the computational errors that are introduced when running the MD code in FPGA or GPU using approximate computing technique.
 We conclude by noting that the present method has been recently implemented in the universal force engine i-PI \cite{iPi}, which can be generally applied to all sorts of forces affected by stochastic noise such as those computed by GPUs or other hardware accelerators~\cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, and potentially even quantum computing devices \cite{Steane, Knill, Blatt, Chow}. The possibility to apply similar ideas to N-body simulations~\cite{White, Makino} and to combine it with further algorithmic approximations~\cite{LassAC} is to be underlined and will be presented elsewhere.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\funding{
+The authors would like to thank the Paderborn Center for Parallel Computing (PC$^2$) for computing time on \textsc{OCuLUS} and FPGA-based supercomputer \textsc{Noctua}. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (Grant Agreement No.:~716142).}
 
-\begin{acks}
-The authors would like to thank the Paderborn Center for Parallel Computing (PC2) for computing time on OCuLUS and FPGA-based supercomputer NOCTUA. Funding from the Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the \grantsponsor{GS:ERC}{European Research Council (ERC)}{https://erc.europa.eu/} under the European Union's Horizon 2020 research and innovation programme (Grant Agreement No.:~\grantnum{GS:ERC}{716142}).
-\end{acks}
+\reftitle{References}
 
-\bibliographystyle{ACM-Reference-Format}
+% Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
+% Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+\externalbibliography{yes}
 \bibliography{report}
 
 \end{document}
