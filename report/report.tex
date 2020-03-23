@@ -1,6 +1,6 @@
-%\documentclass[preprints,article,accept,moreauthors,pdftex]{Definitions/mdpi} 
+%\documentclass[preprints,article,accept,moreauthors,pdftex]{Definitions/mdpi}
 
-\documentclass[computation,article,submit,moreauthors,pdftex]{Definitions/mdpi} 
+\documentclass[computation,article,submit,moreauthors,pdftex]{Definitions/mdpi}
 
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
@@ -20,7 +20,7 @@
 %---------
 % article
 %---------
-% The default type of manuscript is "article", but can be replaced by: 
+% The default type of manuscript is "article", but can be replaced by:
 % abstract, addendum, article, benchmark, book, bookreview, briefreport, casereport, changes, comment, commentary, communication, conceptpaper, conferenceproceedings, correction, conferencereport, expressionofconcern, extendedabstract, meetingreport, creative, datadescriptor, discussion, editorial, essay, erratum, hypothesis, interestingimages, letter, meetingreport, newbookreceived, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, supfile, technicalnote, viewpoint
 % supfile = supplementary materials
 
@@ -40,9 +40,9 @@
 % The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
 
 %=================================================================
-\firstpage{1} 
-\makeatletter 
-\setcounter{page}{\@firstpage} 
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
 \makeatother
 \pubvolume{xx}
 \issuenum{1}
@@ -95,14 +95,14 @@ approximate computing, CP2K, fluctuation-dissipation theorem,  FPGA, i-PI, low-p
 $^{1}$ \quad Dynamics of Condensed Matter, Department of Chemistry, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany ;\\
 $^{2}$ \quad Center for Sustainable Systems Design, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany ;\\
 $^{3}$ \quad Department of Computer Science, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany; \\
-$^{4}$ \quad Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany; 
+$^{4}$ \quad Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany;
 }
 
 % Contact information of the corresponding author
 \corres{Correspondence: christian.plessl@uni-paderborn.de}
 
 % Current address and/or shared authorship
-\firstnote{Current address: Affiliation 3} 
+\firstnote{Current address: Affiliation 3}
 %\secondnote{These authors contributed equally to this work.}
 % The commands \thirdnote{} till \eighthnote{} are available for further notes
 
@@ -178,7 +178,7 @@ predefined scaling factor. Calculations are thereby performed using integer arit
 \section{Methodology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:methodology}
-To demonstrate the concept of approximate computing, we introduce white noise to the interatomic forces that are computed while running the MD simulation. In this section, we describe in detail how we introduce the noise to mimic in software the behavior that would be observed when running the MD on the actual FPGA or GPU hardware with reduced numerical precision. We classify the computational errors into two types: fixed-point errors, and floating-point errors. Assuming that $\textbf{F}_{I}$ are the exact and $\textbf{F}_{I}^{N}$ the noisy forces from a MD simulations with low precision on an FPGA for instance, fixed-point errors can by modelled by
+To demonstrate the concept of approximate computing, we introduce white noise to the interatomic forces that are computed while running the MD simulation. In this section, we describe in detail how we introduce the noise to mimic in software the behavior that would be observed when running the MD on the actual FPGA or GPU hardware with reduced numerical precision. We classify the computational errors into two types: fixed-point errors, and floating-point errors. Assuming that $\textbf{F}_{I}$ are the exact and $\textbf{F}_{I}^{N}$ the noisy forces from a MD simulation with low precision on an FPGA for instance, fixed-point errors can by modelled by
 
 \begin{equation}
 \textbf{F}_{I}^{N}=
@@ -247,7 +247,7 @@ the fluctuation-dissipation theorem
 M_{I}\ddot{\textbf{R}}_{I} = \textbf{F}_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I},
 \end{equation}
 
-\noindent which will be used throughout the remaining of this paper. This is to say that the noise, as originating from a low-precision computation, can be thought of as the additive white noise of a thitherto unknown damping coefficient $\gamma_N$, which satisfies the fluctuation-dissipation theorem of Eq.~\ref{FDT}.  The specific value of $\gamma_N$ is determined in such a way so as to generate the correct average temperature, as measured by the equipartition theorem
+\noindent which will be used throughout the remaining of this paper. This is to say that the noise, as originating from a low-precision computation, can be thought of as the additive white noise of a damping coefficient $\gamma_N$, which satisfies the fluctuation-dissipation theorem of Eq.~\ref{FDT}. The specific value of $\gamma_N$ is determined in such a way so as to generate the correct average temperature, as measured by the equipartition theorem
 
 \begin{equation}
 \left\langle \frac{1}{2} M_I \dot{\textbf{R}}_{I} \right\rangle = \frac{3}{2} k_B T.
@@ -263,11 +263,11 @@ To demonstrate our approach we have implemented it in the CP2K suite of programs
 All simulations consisted of 1000 Si atoms in a 3D-periodic cubic box of length 27.155~\AA. Using the algorithm of Ricci and Ciccotti \cite{Ricci}, Eq.~\ref{LangevinEq} was integrated with a discretized timestep of 1.0~fs with $\gamma_N = 0.001~$fs$^{-1}$.
 
 Whereas the latter settings were used to compute our reference data, in total six different cases of fixed-point and floating-point errors were investigated by varying the exponent $\beta$ between 0 (huge noise) and 3 (tiny noise) that is, ranging from $1/1000$ of the physical force up to the same magnitude as the force.
-As already alluded to above, the additive white noise is compensated via Eq.~\ref{modLangevin} by %varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the equipartition theorem of Eq.~\ref{EquiPartTheorem} is satisfied \cite{Berendsen,TDKwater,TDKrev}. 
-continously adjusting the friction coefficient $\gamma_N$ using the adaptive Langevin technique of Leimkuhler and coworkers so as to satisfy the equipartition theorem of Eq.~\ref{EquiPartTheorem}~\cite{JonesLeimkuhler2011, Mones2015, LeimkuhlerStoltz2019}. In this method, $\gamma_N$ is reinterpreted as a dynamical variable, defined by a negative feedback loop control law as in the Nos\'e-Hoover scheme~\cite{Nose,Hoover}. The corresponding dynamical equation for $\gamma_N$ reads as 
+As already alluded to above, the additive white noise is compensated via Eq.~\ref{modLangevin} by %varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the equipartition theorem of Eq.~\ref{EquiPartTheorem} is satisfied \cite{Berendsen,TDKwater,TDKrev}.
+continously adjusting the friction coefficient $\gamma_N$ using the adaptive Langevin technique of Leimkuhler and coworkers so as to satisfy the equipartition theorem of Eq.~\ref{EquiPartTheorem}~\cite{JonesLeimkuhler2011, Mones2015, LeimkuhlerStoltz2019}. In this method, $\gamma_N$ is reinterpreted as a dynamical variable, defined by a negative feedback loop control law as in the Nos\'e-Hoover scheme~\cite{Nose,Hoover}. The corresponding dynamical equation for $\gamma_N$ reads as
 
 \begin{equation}
-  \dot{\gamma}_N= (2K-n k_B T)/\mathcal{Q}, 
+  \dot{\gamma}_N= (2K-n k_B T)/\mathcal{Q},
 \end{equation}
 
 \noindent where $K$ is the kinetic energy, $n$ is the number of degrees of freedom and $\mathcal{Q}=k_B T \tau^2_{NH}$ is the Nose-Hoover fictitious mass with time constant $\tau_{NH}$. Alternatively, $\gamma_N$ can be estimated by integrating the autocorrelation function of the additive white noise \cite{RZK}.
@@ -356,7 +356,7 @@ The authors would like to thank the Paderborn Center for Parallel Computing (PC$
 \reftitle{References}
 
 % Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
-% Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
+% Citations and References in Supplementary files are permitted provided that they also appear in the reference list here.
 
 %=====================================
 % References, variant A: external bibliography

@@ -14,8 +14,8 @@
 
 
 ### Typos
-- [ ] line 82: "a MD simulations"
-- [ ] line 102: "thitherto"
+- [x] line 82: "a MD simulations"
+- [x] line 102: "thitherto" (*This is actually no mistake but the word is very rarely used. Since the next sentence describes how the value is determined, I just removed the 'thitherto unknown'.*)
 
 ## Reviewer 2
 - [ ] The Figures show that the computations with the newly developed methods almost yield the exact results, i.e., the random noise on the forces is indeed very well compensated for. However, I (and probably also many other readers) am wondering what the effect of this random noise would be if no compensation is active. I strongly recommend to add curves to the Figures (at least to Figure 1 and 2) where the simulation results with random noise and without any mitigation (i.e., standard time integration) are shown. Only then, it will be possible to see how much the newly developed approach actually improves the results.
