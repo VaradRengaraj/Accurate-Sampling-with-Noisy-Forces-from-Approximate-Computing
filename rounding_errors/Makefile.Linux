@@ -1,0 +1,18 @@
+PYVER=3.8
+
+CFLAGS=$(shell python-config --cflags)
+CFLAGS+=-I/usr/lib/python$(PYVER)/site-packages/numpy/core/include
+CFLAGS+=-O3
+
+LDFLAGS=$(shell python-config --ldflags) -fPIC
+
+all: floatingPointSim.so
+
+floatingPointSim.c: floatingPointSim.pyx
+	cython floatingPointSim.pyx
+
+floatingPointSim.so: floatingPointSim.c
+	gcc -w --shared $(CFLAGS) $(LDFLAGS) -o floatingPointSim.so floatingPointSim.c
+
+clean:
+	rm -rf *.so *.so.* *.c
