@@ -5,10 +5,10 @@ set multiplot
 
 set xrange [0:0.7]
 set yrange [0:3]
-set style line 1 lc rgb "black" lw 2 dashtype 1
-set style line 2 lc rgb "red" lw 2 dashtype 2
-set style line 3 lc rgb "green" lw 2 dashtype 4
-set style line 4 lc rgb "blue" lw 2 dashtype 3
+set style line 1 lc rgb "black" lw 3 dashtype 1
+set style line 2 lc rgb "red" lw 3 dashtype 2
+set style line 3 lc rgb "green" lw 3 dashtype 4
+set style line 4 lc rgb "blue" lw 3 dashtype 3
 set xlabel "r [nm]"
 set ylabel "g(r)"
 
