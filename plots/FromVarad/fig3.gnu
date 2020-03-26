@@ -12,5 +12,4 @@ set xlabel "{/*1.5 E_k[eV]}"
 set ylabel "{/*1.5 P(E_k) [eV^{-1}]}"
 #set logscale xy 10
 set logscale y
-plot [0.005:2.5] 'results/maxwell/plt_data_normalized3'title "" with lp ls 1 , funcc(x)title ""  with lp ls 2
-#plot  funcc(x)title ""  with lp ls 2 , 'results/maxwell/plt_data_normalized3'title "" with lp ls 1
+plot [0.005:2.5] 'results/maxwell/plt_data_normalized3'title "Kinetic energy distribution(noisy forces)" with lp ls 1 , funcc(x) title "Analytic Maxwell distribution"  with lp ls 2
