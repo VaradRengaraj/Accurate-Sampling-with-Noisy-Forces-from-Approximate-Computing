@@ -1,15 +1,16 @@
-funcc(x) = ((1/(3.14*3000*.00008617))**1.5)*2*3.14*(x**0.5)*exp(-x/(3000*.00008617))
 set terminal pdf enhanced
-set output "maxwelldistribution.pdf"
-set style line 2  linecolor rgb "black" linewidth 1 pointtype 0 pointsize default
-set style line 1  linecolor rgb "red" linewidth 1 pointtype 6 pointsize default
+set encoding utf8
+set output "figure3.pdf"
+
 set xrange [0:2.5]
-set yrange [0.0001:10]
-set samples 250
-#set ytics 0,0.4,2
-set title font ",20"
-set xlabel "{/*1.5 E_k[eV]}"
-set ylabel "{/*1.5 P(E_k) [eV^{-1}]}"
-#set logscale xy 10
+set yrange [0.0003:3]
 set logscale y
-plot [0.005:2.5] 'results/maxwell/plt_data_normalized3'title "Kinetic energy distribution(noisy forces)" with lp ls 1 , funcc(x) title "Analytic Maxwell distribution"  with lp ls 2
+set style line 1 lc rgb "red" pt 6
+set style line 2 lc rgb "black" lw 1
+set xlabel "{E_k [eV]}"
+set ylabel "{P(E_k) [eV^{-1}]}"
+
+funcc(x) = ((1/(3.14*3000*.00008617))**1.5)*2*3.14*(x**0.5)*exp(-x/(3000*.00008617))
+set samples 250
+
+plot [0.005:2.5] 'results/maxwell/plt_data_normalized3' title "Kinetic energy distribution(noisy forces)" with p ls 1 , funcc(x) title "Analytic Maxwell distribution"  with l ls 2
