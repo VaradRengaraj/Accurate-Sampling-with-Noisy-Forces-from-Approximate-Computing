@@ -74,12 +74,13 @@
 % Author Orchid ID: enter ID or remove command
 \newcommand{\orcidauthorA}{0000-0001-5728-9982} % Plessl Add \orcidA{} behind the author's name
 \newcommand{\orcidauthorB}{0000-0001-5471-2407} % Kühne Add \orcidB{} behind the author's name
+\newcommand{\orcidauthorC}{0000-0002-5708-7632} % Lass Add \orcidC{} behind the author's name
 
 % Authors, for the paper (add full first names)
 %\Author{Varadarajan Rengaraj $^{1,\dagger,\ddagger}$\orcidA{}, Firstname Lastname $^{1,\ddagger}$ and Firstname Lastname $^{2,}$*}
 
-\Author{\hl{Varadarajan} %Please carefully check the accuracy of names and affiliations. Changes will not be possible after proofreading.
- Rengaraj $^{1,2,\dag}$, Michael Lass $^{2,3,\dag}$, Christian Plessl $^{2,3}$\orcidA{} and Thomas D. Kühne $^{1,4,}$*\orcidB{}}
+\Author{Varadarajan %Please carefully check the accuracy of names and affiliations. Changes will not be possible after proofreading.
+ Rengaraj $^{1,2,\dag}$, Michael Lass $^{2,3,\dag}\orcidC{}$, Christian Plessl $^{2,3}$\orcidA{} and Thomas D. Kühne $^{1,4,}$*\orcidB{}}
 
 
 % Authors, for metadata in PDF
@@ -88,7 +89,7 @@
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
 $^{1}$ \quad Dynamics of Condensed Matter, Department of Chemistry, Paderborn University, Warburger Str. 100, 33098~Paderborn, Germany; rengaraj@campus.uni-paderborn.de\\
-$^{2}$ \quad Department of Computer Science, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany; lass@mail.uni-paderborn.de (M.L.); christian.plessl@uni-paderborn.de (C.P.)\\
+$^{2}$ \quad Department of Computer Science, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany; \hl{michael.lass@uni-paderborn.de} (M.L.); christian.plessl@uni-paderborn.de (C.P.)\\
 $^{3}$ \quad Paderborn Center for Parallel Computing, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany\\
 $^{4}$ \quad Center for Sustainable Systems Design, Paderborn University, Warburger Str. 100, 33098 Paderborn, Germany
 }
@@ -139,7 +140,7 @@ approximate computing; CP2K; fluctuation-dissipation theorem; FPGA; i-PI; low pr
 
 Molecular dynamics (MD) is a very powerful and widely used technique to study thermodynamic equilibrium properties, as~well as the real-time dynamics of complex systems made up of interacting atoms~\cite{AlderWainwright1957}. This is done by numerically solving Newton's equations of motion in a time-discretized fashion via computing the nuclear forces of all atoms at every time step~\cite{RahmanMD}. Computing these forces by analytically differentiating the interatomic potential with respect to the nuclear coordinates is computationally rather expensive, which is particularly true for electronic structure-based {ab-initio} MD simulations~\cite{CPMD, CPMD_TDK, PayneRMP, WIRES_TDK}.
 
-For a long time, newly developed microchips have became faster and more efficient due to new manufacturing processes and shrinking transistor sizes. However, this development is slowly coming to an end as scaling down the structures of silicon-based chips becomes more and more difficult. The~focus therefore shifts towards making efficient use of the available technology. Hence, besides~algorithmic developments~\cite{MTS, Snir, GSE, Shaw, VerletCell, pSHAKE, John, Prodan}, there have been numerous custom computing efforts in this area to increase the efficiency of MD simulations by means of hardware acceleration, which~we take up~in this~work. Examples of the latter are MD implementations on graphics processing units (GPUs)~\cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, field-programmable gate arrays (FPGAs) \cite{HerbordtI, HerbordtII}, and~application-specific integrated~circuits (ASICs)~\cite{AntonI, AntonII}.
+For a long time, newly developed microchips have bec\hl{o}me faster and more efficient due to new manufacturing processes and shrinking transistor sizes. However, this development is slowly coming to an end as scaling down the structures of silicon-based chips becomes more and more difficult. The~focus therefore shifts towards making efficient use of the available technology. Hence, besides~algorithmic developments~\cite{MTS, Snir, GSE, Shaw, VerletCell, pSHAKE, John, Prodan}, there have been numerous custom computing efforts in this area to increase the efficiency of MD simulations by means of hardware acceleration, which~we take up~in this~work. Examples of the latter are MD implementations on graphics processing units (GPUs)~\cite{HOOMD, NAMD, OpenMM, HalMD, Lammps, Amber, Gromacs}, field-programmable gate arrays (FPGAs) \cite{HerbordtI, HerbordtII}, and~application-specific integrated~circuits (ASICs)~\cite{AntonI, AntonII}.
 While the use of GPUs for scientific applications is relatively widespread~\cite{GPUcomp,Binder,Weigel}, the~use of ASICs~\cite{QCDScience, QCDOC, GrapeScience, Grape} and FPGAs is less common~\cite{JanusI, JanusII, Convey, FDTD, Kenter, Galerkin}, but~has gained attention over the last few years.
 In general, to~maximize the computational power for a given silicon area, or~equivalently minimize the power-consumption per arithmetic operation, more and more computing units are replaced with lower precision units. This trend is mostly driven by the market considerations of the gaming and artificial intelligence industries, which are the target customers of hardware accelerators and naturally do not absolutely rely on full computing~accuracy.
 
@@ -157,7 +158,7 @@ A basic method of approximation and a key requirement for efficient use of proce
 For example, iterative methods can exhibit resilience against low precision arithmetic, as has been shown for the computation of inverse matrix roots~\cite{lass17-esl} and for solving systems of linear equations~\cite{KlavikMalossiBekasEtAl2014,Bekas,Dongarra2017,Dongarra2018}.
 Mainly driven by the growing popularity of artificial neural networks~\cite{Gupta2015}, we~can observe growing support of low precision data types
 in hardware accelerators.
-In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In~contrast, \texttt{bfloat16}%please check the use of the font; define if appropriate
+In fact, recent GPUs targeting the data center have started supporting half-precision as well, nearly doubling the peak performance compared to single-precision and quadrupling it compared to double-precision arithmetics~\cite{tesla}. However, due to the low number of exponent bits, half-precision only provides a very limited dynamic range. In~contrast, \texttt{bfloat16} %please check the use of the font; define if appropriate
  provides the same dynamic range as single-precision and~just reduces precision. It is currently supported by Google's Tensor Processing Units (TPU)~\cite{tpu}, and support has been announced for future Intel Xeon processors~\cite{xeon} and Intel AgileX FPGAs. A~list of commonly used data types, together with the corresponding number of bits used to store the exponent and the mantissa, are shown in Table~\ref{tab:float} beside the double-precision {de facto} standard. 
 
 \begin{table}[H]
@@ -257,7 +258,7 @@ the fluctuation-dissipation theorem:
 \label{FDT}
 \end{equation}
 
-Substituting Equation~(\ref{fFPGA}) into Equation~(\ref{LangevinEq}) results in the desired modified Langevin equation:
+\noindent Substituting Equation~(\ref{fFPGA}) into Equation~(\ref{LangevinEq}) results in the desired modified Langevin equation:
 \begin{equation} \label{modLangevin}
 M_{I}\ddot{\textbf{R}}_{I} = \textbf{F}_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}_{I},
 \end{equation}
@@ -373,16 +374,24 @@ We conclude by noting that the presented method was recently implemented in the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{\hl{xxx}}
+\authorcontributions{\hl{
 %For research articles with several authors, a short paragraph specifying their individual contributions must be provided.
+V.R. wrote the code and conducted the calculations, 
+V.R. and M.L. analysed the data, M.L., C.P. and 
+T.D.K. interpreted the results, M.L., V.R. and T.D.K. 
+wrote the paper, C.P. and T.D.K. conceived the study 
+and directed the project.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \funding{
-The authors would like to thank the Paderborn Center for Parallel Computing (PC$^2$) for computing time on \textsc{OCuLUS}%please check the font; define if appropriate
- and FPGA-based supercomputer \textsc{Noctua}. Funding from Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (Grant Agreement No.~716142).}
+The authors would like to thank the Paderborn Center for Parallel Computing (PC$^2$) for computing time on \textsc{OCuLUS} %please check the font; define if appropriate
+ and FPGA-based supercomputer \textsc{Noctua}. Funding from Paderborn University's research award for ``Green IT'' is kindly acknowledged. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (Grant Agreement No.~716142) \hl{and from the German Research Foundation (DFG) under the project PerficienCC (grant agreement No PL 595/2-1)}.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\conflictsofinterest{\hl{xxx}}
+\conflictsofinterest{\hl{
 %Declare conflicts of interest or state ``The authors declare no conflict of interest.'' 
+The authors declare no conflict of interest.
+}}
 
 \reftitle{References}
 \begin{thebibliography}{999}
@@ -689,19 +698,19 @@ Gupta, S.; Agrawal, A.; Gopalakrishnan, K.; Narayanan, P.
 
 \bibitem[{NVIDIA Corporation}(2016)]{tesla}
 {NVIDIA Corporation}.
-\newblock \emph{Tesla {P100} Data Sheet}; \hl{NVIDIA: Santa Clara, CA, USA}, 2016.
+\newblock \emph{Tesla {P100} Data Sheet}; NVIDIA: Santa Clara, CA, USA, 2016.
 %Newly added information, please confirm.
 
 
 \bibitem[{The Next Platform}(2018)]{tpu}
 {The Next Platform}.
 \newblock Tearing Apart {Google's} {TPU} 3.0 {AI} Coprocessor.
-\newblock \hl{Online Article,} 2018.
+\newblock Online Article, 2018.
 
 \bibitem[{Top 500}(2018)]{xeon}
 {Top 500}.
 \newblock Intel Lays Out New Roadmap for {AI} Portfolio.
-\newblock \hl{Online Article,} 2018.
+\newblock Online Article, 2018.
 
 \bibitem[Strzodka and Goddeke(2006)]{Strzodka2006}
 Strzodka, R.; Goddeke, D.
@@ -715,7 +724,7 @@ Kenter, T.; Vaz, G.; Plessl, C.
 \newblock Partitioning and Vectorizing Binary Applications.
 \newblock In \emph{Lecture Notes in
  Computer Science, Proceedings of the International Conference on Reconfigurable Computing: Architectures, Tools~
- and Applications (ARC), Vilamoura, Portugal, 14--16 April 2014}; Spring: \hl{Berlin/Heidelberg, Germany,} %newly added information, please confirm
+ and Applications (ARC), Vilamoura, Portugal, 14--16 April 2014}; Spring\hl{er}: Berlin/Heidelberg, Germany, %newly added information, please confirm
  2014;
 Volume~8405, pp. 144--155; doi:10.1007/978-3-319-05960-0\_13.
 
