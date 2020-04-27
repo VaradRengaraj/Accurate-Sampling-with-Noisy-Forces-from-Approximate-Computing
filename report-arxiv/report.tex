@@ -206,19 +206,7 @@ M_{I}\ddot{\textbf{R}}_{I} = \textbf{F}_{I}^{N}-\gamma _{N}M_{I}\dot{\textbf{R}}
 \section{Computational details}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{sec:computational}
-To demonstrate our approach we have implemented it in the CP2K suite of programs \cite{CP2Ka, CP2Kb}. More precisely, we have conducted MD simulations of liquid Silicon (Si) at 3000~K using the environment-dependent interatomic potential of Bazant et al. \cite{EIP1,EIP2}.
-All simulations consisted of 1000 Si atoms in a 3D-periodic cubic box of length 27.155~\AA. Using the algorithm of Ricci and Ciccotti \cite{Ricci}, Eq.~\ref{LangevinEq} was integrated with a discretized timestep of 1.0~fs with $\gamma_N = 0.001~$fs$^{-1}$.
 
-Whereas the latter settings were used to compute our reference data, in total six different cases of fixed-point and floating-point errors were investigated by varying the exponent $\beta$ between 0 (huge noise) and 3 (tiny noise) that is, ranging from $1/1000$ of the physical force up to the same magnitude as the force.
-As already alluded to above, the additive white noise is compensated via Eq.~\ref{modLangevin} by %varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the equipartition theorem of Eq.~\ref{EquiPartTheorem} is satisfied \cite{Berendsen,TDKwater,TDKrev}.
-continously adjusting the friction coefficient $\gamma_N$ using the adaptive Langevin technique of Leimkuhler and coworkers so as to satisfy the equipartition theorem of Eq.~\ref{EquiPartTheorem}~\cite{JonesLeimkuhler2011, Mones2015, LeimkuhlerStoltz2019}. In this method, $\gamma_N$ is reinterpreted as a dynamical variable, defined by a negative feedback loop control law as in the Nos\'e-Hoover scheme~\cite{Nose,Hoover}. The corresponding dynamical equation for $\gamma_N$ reads as
-
-\begin{equation}
-  \dot{\gamma}_N= (2K-n k_B T)/\mathcal{Q},
-\end{equation}
-
-\noindent where $K$ is the kinetic energy, $n$ is the number of degrees of freedom and $\mathcal{Q}=k_B T \tau^2_{NH}$ is the Nose-Hoover fictitious mass with time constant $\tau_{NH}$. Alternatively, $\gamma_N$ can be estimated by integrating the autocorrelation function of the additive white noise \cite{RZK}.
-In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for fixed-point and \textit{\(\gamma_N^{float}\)} for floating-point errors are reported as a function of \textit{\(\beta\)}.
 \begin{table}
   \caption{Values for \textit{\(\gamma_N^{fix}\)} and \textit{\(\gamma_N^{float}\)} as a function of \textit{\(\beta\)}.}
   \centering
@@ -233,6 +221,19 @@ In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for
   \end{tabular}
 \end{table}
 
+To demonstrate our approach we have implemented it in the CP2K suite of programs \cite{CP2Ka, CP2Kb}. More precisely, we have conducted MD simulations of liquid Silicon (Si) at 3000~K using the environment-dependent interatomic potential of Bazant et al. \cite{EIP1,EIP2}.
+All simulations consisted of 1000 Si atoms in a 3D-periodic cubic box of length 27.155~\AA. Using the algorithm of Ricci and Ciccotti \cite{Ricci}, Eq.~\ref{LangevinEq} was integrated with a discretized timestep of 1.0~fs with $\gamma_N = 0.001~$fs$^{-1}$.
+
+Whereas the latter settings were used to compute our reference data, in total six different cases of fixed-point and floating-point errors were investigated by varying the exponent $\beta$ between 0 (huge noise) and 3 (tiny noise) that is, ranging from $1/1000$ of the physical force up to the same magnitude as the force.
+As already alluded to above, the additive white noise is compensated via Eq.~\ref{modLangevin} by %varying $\gamma_N$ on-the-fly using a Berendsen-like algorithm until the equipartition theorem of Eq.~\ref{EquiPartTheorem} is satisfied \cite{Berendsen,TDKwater,TDKrev}.
+continously adjusting the friction coefficient $\gamma_N$ using the adaptive Langevin technique of Leimkuhler and coworkers so as to satisfy the equipartition theorem of Eq.~\ref{EquiPartTheorem}~\cite{JonesLeimkuhler2011, Mones2015, LeimkuhlerStoltz2019}. In this method, $\gamma_N$ is reinterpreted as a dynamical variable, defined by a negative feedback loop control law as in the Nos\'e-Hoover scheme~\cite{Nose,Hoover}. The corresponding dynamical equation for $\gamma_N$ reads as
+
+\begin{equation}
+  \dot{\gamma}_N= (2K-n k_B T)/\mathcal{Q},
+\end{equation}
+
+\noindent where $K$ is the kinetic energy, $n$ is the number of degrees of freedom and $\mathcal{Q}=k_B T \tau^2_{NH}$ is the Nose-Hoover fictitious mass with time constant $\tau_{NH}$. Alternatively, $\gamma_N$ can be estimated by integrating the autocorrelation function of the additive white noise \cite{RZK}.
+In Table~\ref{tab:gamma} the resulting values of \textit{\(\gamma_N^{fix}\)} for fixed-point and \textit{\(\gamma_N^{float}\)} for floating-point errors are reported as a function of \textit{\(\beta\)}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion}
