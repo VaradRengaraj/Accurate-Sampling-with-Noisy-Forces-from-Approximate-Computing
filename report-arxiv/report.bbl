@@ -1,0 +1,652 @@
+\begin{thebibliography}{-------}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[Alder and Wainwright(1957)]{AlderWainwright1957}
+Alder, B.J.; Wainwright, T.E.
+\newblock Phase Transition for a Hard Sphere System.
+\newblock {\em J. Chem. Phys.} {\bf 1957}, {\em 27},~1208--1209.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.1743957}{\detokenize{10.1063/1.1743957}}}.
+
+\bibitem[Rahman(1964)]{RahmanMD}
+Rahman, A.
+\newblock Correlations in the Motion of Atoms in Liquid Argon.
+\newblock {\em Phys. Rev.} {\bf 1964}, {\em 136},~A405--A411.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRev.136.A405}{\detokenize{10.1103/PhysRev.136.A405}}}.
+
+\bibitem[Car and Parrinello(1985)]{CPMD}
+Car, R.; Parrinello, M.
+\newblock Unified approach for molecular dynamics and density-functional
+  theory.
+\newblock {\em Phys. Rev. Lett.} {\bf 1985}, {\em 55},~2471--2474.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevLett.55.2471}{\detokenize{10.1103/PhysRevLett.55.2471}}}.
+
+\bibitem[K\"uhne \em{et~al.}(2007)K\"uhne, Krack, Mohamed, and
+  Parrinello]{CPMD_TDK}
+K\"uhne, T.D.; Krack, M.; Mohamed, F.R.; Parrinello, M.
+\newblock Efficient and accurate Car-Parrinello-like approach to
+  Born-Oppenheimer molecular dynamics.
+\newblock {\em Phys. Rev. Lett.} {\bf 2007}, {\em 98},~066401.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevLett.98.066401}{\detokenize{10.1103/PhysRevLett.98.066401}}}.
+
+\bibitem[Payne \em{et~al.}(1992)Payne, Teter, Allan, Arias, and
+  Joannopoulos]{PayneRMP}
+Payne, M.C.; Teter, M.P.; Allan, D.C.; Arias, T.A.; Joannopoulos, J.D.
+\newblock Iterative minimization techniques for ab initio total-energy
+  calculations: molecular dynamics and conjugate gradients.
+\newblock {\em Rev. Mod. Phys.} {\bf 1992}, {\em 64},~1045--1097.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/RevModPhys.64.1045}{\detokenize{10.1103/RevModPhys.64.1045}}}.
+
+\bibitem[K\"uhne(2014)]{WIRES_TDK}
+K\"uhne, T.D.
+\newblock Second generation Car–Parrinello molecular dynamics.
+\newblock {\em WIREs Comput. Mol. Sci.} {\bf 2014}, {\em 4},~391--406.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1002/wcms.1176}{\detokenize{10.1002/wcms.1176}}}.
+
+\bibitem[Tuckerman \em{et~al.}(1992)Tuckerman, Berne, and Martyna]{MTS}
+Tuckerman, M.E.; Berne, B.J.; Martyna, G.J.
+\newblock Reversible multiple time scale molecular dynamics.
+\newblock {\em J. Chem. Phys.} {\bf 1992}, {\em 97},~1990--2001.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.463137}{\detokenize{10.1063/1.463137}}}.
+
+\bibitem[Snir(2004)]{Snir}
+Snir, M.
+\newblock A note on N-body computations with cutoffs.
+\newblock {\em Theor. Comput. Syst.} {\bf 2004}, {\em 37},~295--318.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1007/s00224-003-1071-0}{\detokenize{10.1007/s00224-003-1071-0}}}.
+
+\bibitem[Shan \em{et~al.}(2005)Shan, Klepeis, Eastwood, Dror, and Shaw]{GSE}
+Shan, Y.; Klepeis, J.L.; Eastwood, M.P.; Dror, R.O.; Shaw, D.E.
+\newblock Gaussian split Ewald: A fast Ewald mesh method for molecular
+  simulation.
+\newblock {\em J. Chem. Phys.} {\bf 2005}, {\em 122},~054101.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.1839571}{\detokenize{10.1063/1.1839571}}}.
+
+\bibitem[Shaw(2005)]{Shaw}
+Shaw, D.E.
+\newblock A fast, scalable method for the parallel evaluation of
+  distance-limited pairwise particle interactions.
+\newblock {\em J. Comput. Chem.} {\bf 2005}, {\em 26},~1318--1328.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1002/jcc.20267}{\detokenize{10.1002/jcc.20267}}}.
+
+\bibitem[Gonnet(2012)]{VerletCell}
+Gonnet, P.
+\newblock Pairwise Verlet Lists: Combining Cell Lists and Verlet Lists to
+  Improve Memory Locality and Parallelism.
+\newblock {\em J. Comp. Chem.} {\bf 2012}, {\em 33},~76--81.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1002/jcc.21945}{\detokenize{10.1002/jcc.21945}}}.
+
+\bibitem[Gonnet(2007)]{pSHAKE}
+Gonnet, P.
+\newblock A quadratically convergent SHAKE in O(n(2)).
+\newblock {\em J. Comp. Phys.} {\bf 2007}, {\em 220},~740--750.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.jcp.2006.05.032}{\detokenize{10.1016/j.jcp.2006.05.032}}}.
+
+\bibitem[John \em{et~al.}(2016)John, Spura, Habershon, and K\"uhne]{John}
+John, C.; Spura, T.; Habershon, S.; K\"uhne, T.D.
+\newblock Quantum ring-polymer contraction method: Including nuclear quantum
+  effects at no additional computational cost in comparison to ab initio
+  molecular dynamics.
+\newblock {\em Phys. Rev. E} {\bf 2016}, {\em 93},~043305.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevE.93.043305}{\detokenize{10.1103/PhysRevE.93.043305}}}.
+
+\bibitem[K\"uhne and Prodan(2018)]{Prodan}
+K\"uhne, T.D.; Prodan, E.
+\newblock Disordered Crystals from First Principles I: Quantifying the
+  Configuration Space.
+\newblock {\em Annals of Physics} {\bf 2018}, {\em 391},~120--149.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.aop.2018.01.016}{\detokenize{10.1016/j.aop.2018.01.016}}}.
+
+\bibitem[Anderson \em{et~al.}(2008)Anderson, Lorenz, and Travesset]{HOOMD}
+Anderson, J.A.; Lorenz, C.D.; Travesset, A.
+\newblock General purpose molecular dynamics simulations fully implemented on
+  graphics processing units.
+\newblock {\em J. Comp. Phys.} {\bf 2008}, {\em 227},~5342--5359.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.jcp.2008.01.047}{\detokenize{10.1016/j.jcp.2008.01.047}}}.
+
+\bibitem[Stone \em{et~al.}(2010)Stone, Hardy, Ufimtsev, and Schulten]{NAMD}
+Stone, J.E.; Hardy, D.J.; Ufimtsev, I.S.; Schulten, K.
+\newblock GPU-accelerated molecular modeling coming of age.
+\newblock {\em J. Mol. Graphics Modell.} {\bf 2010}, {\em 29},~116--125.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.jmgm.2010.06.010}{\detokenize{10.1016/j.jmgm.2010.06.010}}}.
+
+\bibitem[Eastman and Pande(2010)]{OpenMM}
+Eastman, P.; Pande, V.S.
+\newblock OpenMM: A Hardware-Independent Framework for Molecular Simulations.
+\newblock {\em Comput. Sci. Eng.} {\bf 2010}, {\em 12},~34--39.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/MCSE.2010.27}{\detokenize{10.1109/MCSE.2010.27}}}.
+
+\bibitem[Colberg and H\"ofling(2011)]{HalMD}
+Colberg, P.H.; H\"ofling, F.
+\newblock Highly accelerated simulations of glassy dynamics using GPUs: Caveats
+  on limited floating-point precision.
+\newblock {\em Comp. Phys. Commun.} {\bf 2011}, {\em 182},~1120--1129.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.cpc.2011.01.009}{\detokenize{10.1016/j.cpc.2011.01.009}}}.
+
+\bibitem[Brown \em{et~al.}(2012)Brown, Kohlmeyer, Plimpton, and
+  Tharrington]{Lammps}
+Brown, W.M.; Kohlmeyer, A.; Plimpton, S.J.; Tharrington, A.N.
+\newblock Implementing molecular dynamics on hybrid high performance computers
+  – Particle–particle particle-mesh.
+\newblock {\em Comp. Phys. Commun.} {\bf 2012}, {\em 183},~449--459.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.cpc.2011.10.012}{\detokenize{10.1016/j.cpc.2011.10.012}}}.
+
+\bibitem[{Le Grand} \em{et~al.}(2013){Le Grand}, G\"otz, and Walker]{Amber}
+{Le Grand}, S.; G\"otz, A.W.; Walker, R.C.
+\newblock SPFP: Speed without compromise—A mixed precision model for GPU
+  accelerated molecular dynamics simulations.
+\newblock {\em Comp. Phys. Commun.} {\bf 2013}, {\em 184},~374--380.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.cpc.2012.09.022}{\detokenize{10.1016/j.cpc.2012.09.022}}}.
+
+\bibitem[Abraham \em{et~al.}(2015)Abraham, Murtola, Schulz, Pall, Smith, Hess,
+  and Lindahl]{Gromacs}
+Abraham, A.J.; Murtola, T.; Schulz, R.; Pall, S.; Smith, J.C.; Hess, B.;
+  Lindahl, E.
+\newblock GROMACS: High performance molecular simulations through multi-level
+  parallelism from laptops to supercomputers.
+\newblock {\em SoftwareX} {\bf 2015}, {\em 1--2},~19--25.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.softx.2015.06.001}{\detokenize{10.1016/j.softx.2015.06.001}}}.
+
+\bibitem[Herbordt \em{et~al.}(2008{\natexlab{a}})Herbordt, Gu, VanCourt, Model,
+  Sukhwani, and Chiu]{HerbordtI}
+Herbordt, M.C.; Gu, Y.; VanCourt, T.; Model, J.; Sukhwani, B.; Chiu, M.
+\newblock Computing Models for FPGA-Based Accelerators.
+\newblock {\em Comput. Sci. Eng.} {\bf 2008}, {\em 10},~35--45.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/MCSE.2008.143}{\detokenize{10.1109/MCSE.2008.143}}}.
+
+\bibitem[Herbordt \em{et~al.}(2008{\natexlab{b}})Herbordt, Gu, VanCourt, Model,
+  Sukhwani, and Chiu]{HerbordtII}
+Herbordt, M.C.; Gu, Y.; VanCourt, T.; Model, J.; Sukhwani, B.; Chiu, M.
+\newblock Explicit design of FPGA-based coprocessors for short-range force
+  computations in molecular dynamics simulations.
+\newblock {\em Parallel Computing} {\bf 2008}, {\em 34},~261--277.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.parco.2008.01.007}{\detokenize{10.1016/j.parco.2008.01.007}}}.
+
+\bibitem[Shaw \em{et~al.}(2007)Shaw, Deneroff, Dror, Kuskin, Larson, Salmon,
+  Young, Batson, Bowers, Chao, Eastwood, Gagliardo, Grossman, Ho, Ierardi,
+  Kolossv\'{a}ry, Klepeis, Layman, McLeavey, Moraes, Mueller, Priest, Shan,
+  Spengler, Theobald, Towles, and Wang]{AntonI}
+Shaw, D.E.; Deneroff, M.M.; Dror, R.O.; Kuskin, J.S.; Larson, R.H.; Salmon,
+  J.K.; Young, C.; Batson, B.; Bowers, K.J.; Chao, J.C.; Eastwood, M.P.;
+  Gagliardo, J.; Grossman, J.P.; Ho, C.R.; Ierardi, D.J.; Kolossv\'{a}ry, I.;
+  Klepeis, J.L.; Layman, T.; McLeavey, C.; Moraes, M.A.; Mueller, R.; Priest,
+  E.C.; Shan, Y.; Spengler, J.; Theobald, M.; Towles, B.; Wang, S.C.
+\newblock Anton, a Special-purpose Machine for Molecular Dynamics Simulation.
+\newblock  Proceedings of the 34th Annual International Symposium on Computer
+  Architecture; ACM: New York, NY, USA,  2007; ISCA '07, pp. 1--12.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1145/1250662.1250664}{\detokenize{10.1145/1250662.1250664}}}.
+
+\bibitem[Shaw \em{et~al.}(2014)Shaw, Grossman, Bank, Batson, Butts, Chao,
+  Deneroff, Dror, Even, Fenton, Forte, Gagliardo, Gill, Greskamp, Ho, Ierardi,
+  Iserovich, Kuskin, Larson, Layman, Lee, Lerer, Li, Killebrew, Mackenzie, Mok,
+  Moraes, Mueller, Nociolo, Peticolas, Quan, Ramot, Salmon, Scarpazza,
+  Ben~Schafer, Siddique, Snyder, Spengler, Tang, Theobald, Toma, Towles,
+  Vitale, Wang, and Young]{AntonII}
+Shaw, D.E.; Grossman, J.P.; Bank, J.A.; Batson, B.; Butts, J.A.; Chao, J.C.;
+  Deneroff, M.M.; Dror, R.O.; Even, A.; Fenton, C.H.; Forte, A.; Gagliardo, J.;
+  Gill, G.; Greskamp, B.; Ho, C.R.; Ierardi, D.J.; Iserovich, L.; Kuskin, J.S.;
+  Larson, R.H.; Layman, T.; Lee, L.S.; Lerer, A.K.; Li, C.; Killebrew, D.;
+  Mackenzie, K.M.; Mok, S.Y.H.; Moraes, M.A.; Mueller, R.; Nociolo, L.J.;
+  Peticolas, J.L.; Quan, T.; Ramot, D.; Salmon, J.K.; Scarpazza, D.P.;
+  Ben~Schafer, U.; Siddique, N.; Snyder, C.W.; Spengler, J.; Tang, P.T.P.;
+  Theobald, M.; Toma, H.; Towles, B.; Vitale, B.; Wang, S.C.; Young, C.
+\newblock Anton 2: Raising the Bar for Performance and Programmability in a
+  Special-purpose Molecular Dynamics Supercomputer.
+\newblock  Proceedings of the International Conference for High Performance
+  Computing, Networking, Storage and Analysis; IEEE Press: Piscataway, NJ, USA,
+   2014; SC '14, pp. 41--53.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/SC.2014.9}{\detokenize{10.1109/SC.2014.9}}}.
+
+\bibitem[{Owens} \em{et~al.}(2008){Owens}, {Houston}, {Luebke}, {Green},
+  {Stone}, and {Phillips}]{GPUcomp}
+{Owens}, J.D.; {Houston}, M.; {Luebke}, D.; {Green}, S.; {Stone}, J.E.;
+  {Phillips}, J.C.
+\newblock GPU Computing.
+\newblock {\em Proceedings of the IEEE} {\bf 2008}, {\em 96},~879--899.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/JPROC.2008.917757}{\detokenize{10.1109/JPROC.2008.917757}}}.
+
+\bibitem[Preis \em{et~al.}(2009)Preis, Virnau, Paul, and Schneider]{Binder}
+Preis, T.; Virnau, P.; Paul, W.; Schneider, J.J.
+\newblock GPU accelerated Monte Carlo simulation of the 2D and 3D Ising model.
+\newblock {\em J. Comp. Phys.} {\bf 2009}, {\em 228},~4468--4477.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.jcp.2009.03.018}{\detokenize{10.1016/j.jcp.2009.03.018}}}.
+
+\bibitem[Weigel(2012)]{Weigel}
+Weigel, M.
+\newblock Performance potential for simulating spin models on GPU.
+\newblock {\em J. Comp. Phys.} {\bf 2012}, {\em 231},~3064--3082.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.jcp.2011.12.008}{\detokenize{10.1016/j.jcp.2011.12.008}}}.
+
+\bibitem[Brown and Christ(1988)]{QCDScience}
+Brown, F.R.; Christ, N.H.
+\newblock Parallel Supercomputers for Lattice Gauge Theory.
+\newblock {\em Science} {\bf 1988}, {\em 239},~1393--1400.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1126/science.239.4846.1393}{\detokenize{10.1126/science.239.4846.1393}}}.
+
+\bibitem[{Boyle} \em{et~al.}(2005){Boyle}, {Chen}, {Christ}, {Clark}, {Cohen},
+  {Cristian}, {Dong}, {Gara}, {Joo}, {Jung}, {Kim}, {Levkova}, {Liao}, {Liu},
+  {Mawhinney}, {Ohta}, {Petrov}, {Wettig}, and {Yamaguchi}]{QCDOC}
+{Boyle}, P.A.; {Chen}, D.; {Christ}, N.H.; {Clark}, M.A.; {Cohen}, S.D.;
+  {Cristian}, C.; {Dong}, Z.; {Gara}, A.; {Joo}, B.; {Jung}, C.; {Kim}, C.;
+  {Levkova}, L.A.; {Liao}, X.; {Liu}, G.; {Mawhinney}, R.D.; {Ohta}, S.;
+  {Petrov}, K.; {Wettig}, T.; {Yamaguchi}, A.
+\newblock Overview of the QCDSP and QCDOC computers.
+\newblock {\em IBM Journal of Research and Development} {\bf 2005}, {\em
+  49},~351--365.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1147/rd.492.0351}{\detokenize{10.1147/rd.492.0351}}}.
+
+\bibitem[Hut and Makino(1999)]{GrapeScience}
+Hut, P.; Makino, J.
+\newblock Astrophysics on the GRAPE Family of Special-Purpose Computers.
+\newblock {\em Science} {\bf 1999}, {\em 283},~501--505.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1126/science.283.5401.501}{\detokenize{10.1126/science.283.5401.501}}}.
+
+\bibitem[Fukushige \em{et~al.}(1999)Fukushige, Hut, and Makino]{Grape}
+Fukushige, T.; Hut, P.; Makino, J.
+\newblock High-performance special-purpose computers in science.
+\newblock {\em Comput. Sci. Eng.} {\bf 1999}, {\em 1},~12--13.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/5992.753041}{\detokenize{10.1109/5992.753041}}}.
+
+\bibitem[Belletti \em{et~al.}(2009)Belletti, Cotallo, Cruz, Fernandez,
+  Gordillo-Guerrero, Guidetti, Maiorano, Mantovani, Marinari, Martin-Mayor,
+  Munoz-Sudupe, Navarro, Parisi, Perez-Gaviro, Rossi, Ruiz-Lorenzo, Schifano,
+  Sciretti, Tarancon, and Tripiccione]{JanusI}
+Belletti, F.; Cotallo, M.; Cruz, A.; Fernandez, L.A.; Gordillo-Guerrero, A.;
+  Guidetti, M.; Maiorano, A.; Mantovani, F.; Marinari, E.; Martin-Mayor, V.;
+  Munoz-Sudupe, A.; Navarro, D.; Parisi, G.; Perez-Gaviro, S.; Rossi, M.;
+  Ruiz-Lorenzo, J.J.; Schifano, S.F.; Sciretti, D.; Tarancon, A.; Tripiccione,
+  R.
+\newblock Janus: An FPGA-Based System for High-Performance Scientific
+  Computing.
+\newblock {\em Comput. Sci. Eng.} {\bf 2009}, {\em 11},~48.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/MCSE.2009.11}{\detokenize{10.1109/MCSE.2009.11}}}.
+
+\bibitem[Baity-Jesi \em{et~al.}(2014)Baity-Jesi, R.A.~Banos, Cruz, Fernandez,
+  Gil-Narvion, Gordillo-Guerrero, Iniguez, Maiorano, Mantovani, Marinari,
+  Martin-Mayor, Monforte-Garcia, Munoz-Sudupe, Navarro, Parisi, Perez-Gaviro,
+  Pivanti, Ricci-Tersenghi, Ruiz-Lorenzo, Schifano, Seoane, Tarancon,
+  Tripiccione, and Yllanes]{JanusII}
+Baity-Jesi, M.; R.A.~Banos, R.A.; Cruz, A.; Fernandez, L.A.; Gil-Narvion, J.M.;
+  Gordillo-Guerrero, A.; Iniguez, D.; Maiorano, A.; Mantovani, F.; Marinari,
+  E.; Martin-Mayor, V.; Monforte-Garcia, J.; Munoz-Sudupe, A.; Navarro, D.;
+  Parisi, G.; Perez-Gaviro, S.; Pivanti, M.; Ricci-Tersenghi, F.; Ruiz-Lorenzo,
+  J.J.; Schifano, S.F.; Seoane, B.; Tarancon, A.; Tripiccione, R.; Yllanes, D.
+\newblock Janus II: A new generation application-driven computer for
+  spin-system simulations.
+\newblock {\em Comp. Phys. Commun.} {\bf 2014}, {\em 185},~550--559.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.cpc.2013.10.019}{\detokenize{10.1016/j.cpc.2013.10.019}}}.
+
+\bibitem[Meyer \em{et~al.}(2012)Meyer, Schumacher, Plessl, and
+  Forstner]{Convey}
+Meyer, B.; Schumacher, J.; Plessl, C.; Forstner, J.
+\newblock Convey vector personalities - FPGA acceleration with an openmp-like
+  programming effort?
+\newblock  Proc. Int. Conf. on Field Programmable Logic and Applications (FPL).
+  IEEE,  2012, FPL '12, pp. 189--196.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/FPL.2012.6339259}{\detokenize{10.1109/FPL.2012.6339259}}}.
+
+\bibitem[Giefers \em{et~al.}(2014)Giefers, Plessl, and F\"{o}rstner]{FDTD}
+Giefers, H.; Plessl, C.; F\"{o}rstner, J.
+\newblock Accelerating Finite Difference Time Domain Simulations with
+  Reconfigurable Dataflow Computers.
+\newblock {\em SIGARCH Comput. Archit. News} {\bf 2014}, {\em 41},~65--70.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1145/2641361.2641372}{\detokenize{10.1145/2641361.2641372}}}.
+
+\bibitem[Kenter \em{et~al.}(2017)Kenter, F\"orstner, and Plessl]{Kenter}
+Kenter, T.; F\"orstner, J.; Plessl, C.
+\newblock Flexible FPGA design for FDTD using OpenCL.
+\newblock  Proc. Int. Conf. on Field Programmable Logic and Applications. IEEE,
+   2017, FPL '17.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.23919/FPL.2017.8056844}{\detokenize{10.23919/FPL.2017.8056844}}}.
+
+\bibitem[Kenter \em{et~al.}(2018)Kenter, Mahale, Alhaddad, Grynko, Schmitt,
+  Afzal, Hannig, F\"orstner, and Plessl]{Galerkin}
+Kenter, T.; Mahale, G.; Alhaddad, S.; Grynko, Y.; Schmitt, C.; Afzal, A.;
+  Hannig, F.; F\"orstner, J.; Plessl, C.
+\newblock OpenCL-based FPGA Design to Accelerate the Nodal Discontinuous
+  Galerkin Method for Unstructured Meshes.
+\newblock  Pro. Int. Symp. on Field-Programmable Custom Computing Machines,
+  2018, Vol.~1, {\em FCCM '18}, pp. 189--196.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/FCCM.2018.00037}{\detokenize{10.1109/FCCM.2018.00037}}}.
+
+\bibitem[Klav{\'\i}k \em{et~al.}(2014)Klav{\'\i}k, Malossi, Bekas, and
+  Curioni]{KlavikMalossiBekasEtAl2014}
+Klav{\'\i}k, P.; Malossi, A.C.I.; Bekas, C.; Curioni, A.
+\newblock {Changing Computing Paradigms Towards Power Efficiency}.
+\newblock {\em Philosophical Transactions of the Royal Society {A}:
+  Mathematical, Physical \& Engineering Sciences} {\bf 2014}, {\em 372}.
+
+\bibitem[Plessl \em{et~al.}(2015)Plessl, Platzner, and Schreier]{PlesslAC}
+Plessl, C.; Platzner, M.; Schreier, P.J.
+\newblock Approximate Computing.
+\newblock {\em Informatik Spektrum} {\bf 2015}, {\em 38},~396--399.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1007/s00287-015-0911-z}{\detokenize{10.1007/s00287-015-0911-z}}}.
+
+\bibitem[Lass \em{et~al.}(2018)Lass, K\"uhne, and Plessl]{lass17-esl}
+Lass, M.; K\"uhne, T.D.; Plessl, C.
+\newblock Using Approximate Computing for the Calculation of Inverse Matrix
+  p-th Roots.
+\newblock {\em IEEE Embedded Systems Letters} {\bf 2018}, {\em 10},~33--36.
+
+\bibitem[Angerer \em{et~al.}(2016)Angerer, Polig, Zegarac, Giefers, Hagleitner,
+  Bekas, and Curioni]{Bekas}
+Angerer, C.M.; Polig, R.; Zegarac, D.; Giefers, H.; Hagleitner, C.; Bekas, C.;
+  Curioni, A.
+\newblock A fast, hybrid, power-efficient high-precision solver for large
+  linear systems based on low-precision hardware {\bf 2016}.
+\newblock {\em 12},~72--82.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.suscom.2015.10.001}{\detokenize{10.1016/j.suscom.2015.10.001}}}.
+
+\bibitem[Haidar \em{et~al.}(2017)Haidar, Wu, Tomov, and Dongarra]{Dongarra2017}
+Haidar, A.; Wu, P.; Tomov, S.; Dongarra, J.
+\newblock Investigating half precision arithmetic to accelerate dense linear
+  system solvers.
+\newblock  8th Workshop on Latest Advances in Scalable Algorithms for
+  Large-Scale Systems. ACM,  2017, ScalA17.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1145/3148226.3148237}{\detokenize{10.1145/3148226.3148237}}}.
+
+\bibitem[Haidar \em{et~al.}(2018)Haidar, Tomov, Dongarra, and
+  Higham]{Dongarra2018}
+Haidar, A.; Tomov, S.; Dongarra, J.; Higham, N.J.
+\newblock Harnessing GPU tensor cores for fast FP16 arithmetic to speed up
+  mixed-precision iterative refinement solvers.
+\newblock  Proceedings of the International Conference for High Performance
+  Computing, Networking, Storage, and Analysis. IEEE,  2018, SC '18.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/SC.2018.00050}{\detokenize{10.1109/SC.2018.00050}}}.
+
+\bibitem[Gupta \em{et~al.}(2015)Gupta, Agrawal, Gopalakrishnan, and
+  Narayanan]{Gupta2015}
+Gupta, S.; Agrawal, A.; Gopalakrishnan, K.; Narayanan, P.
+\newblock Deep learning with limited numerical precision.
+\newblock  Proceedings of the 32nd International Conference on International
+  Conference on Machine Learning. ACM,  2015, ICML'15, pp. 1737--1746.
+
+\bibitem[{NVIDIA Corporation}(2016)]{tesla}
+{NVIDIA Corporation}.
+\newblock Tesla {P100} Data Sheet,  2016.
+
+\bibitem[{The Next Platform}(2018)]{tpu}
+{The Next Platform}.
+\newblock Tearing Apart {Google's} {TPU} 3.0 {AI} Coprocessor.
+\newblock Online Article,  2018.
+
+\bibitem[{Top 500}(2018)]{xeon}
+{Top 500}.
+\newblock Intel Lays Out New Roadmap for {AI} Portfolio.
+\newblock Online Article,  2018.
+
+\bibitem[Strzodka and Goddeke(2006)]{Strzodka2006}
+Strzodka, R.; Goddeke, D.
+\newblock Pipelined Mixed Precision Algorithms on FPGAs for Fast and Accurate
+  PDE Solvers from Low Precision Components.
+\newblock  14th Annual IEEE Symposium on Field-Programmable Custom Computing
+  Machines. IEEE,  2006.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/FCCM.2006.57}{\detokenize{10.1109/FCCM.2006.57}}}.
+
+\bibitem[Kenter \em{et~al.}(2014)Kenter, Vaz, and Plessl]{KenterVector}
+Kenter, T.; Vaz, G.; Plessl, C.
+\newblock Partitioning and Vectorizing Binary Applications.
+\newblock  Proc. Int. Conf. on Reconfigurable Computing: Architectures, Tools
+  and Applications (ARC). Springer,  2014, Vol. 8405, {\em Lecture Notes in
+  Computer Science}, pp. 144--155.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1007/978-3-319-05960-0\_13}{\detokenize{10.1007/978-3-319-05960-0\_13}}}.
+
+\bibitem[Kenter \em{et~al.}(2012)Kenter, Schmitz, and Plessl]{KenterPragma}
+Kenter, T.; Schmitz, H.; Plessl, C.
+\newblock Pragma based parallelization - Trading hardware efficiency for ease
+  of use?
+\newblock  2012 International Conference on Reconfigurable Computing and FPGAs.
+  IEEE,  2012.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1109/ReConFig.2012.6416773}{\detokenize{10.1109/ReConFig.2012.6416773}}}.
+
+\bibitem[{Microprocessor Standards Committee of the IEEE Computer
+  Society}(2019)]{IEEE2019}
+{Microprocessor Standards Committee of the IEEE Computer Society}.
+\newblock {\em IEEE Std. 754-2019 -- IEEE Standard for Floating-Point
+  Arithmetic}; IEEE,  2019.
+
+\bibitem[Krajewski and Parrinello(2006)]{Krajewski}
+Krajewski, F.R.; Parrinello, M.
+\newblock Linear scaling electronic structure calculations and accurate
+  statistical mechanics sampling with noisy forces.
+\newblock {\em Phys. Rev. B} {\bf 2006}, {\em 73},~041105.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevB.73.041105}{\detokenize{10.1103/PhysRevB.73.041105}}}.
+
+\bibitem[Richters and K\"uhne(2014)]{Richters}
+Richters, D.; K\"uhne, T.D.
+\newblock Self-consistent field theory based molecular dynamics with linear
+  system-size scaling.
+\newblock {\em J. Chem. Phys.} {\bf 2014}, {\em 140},~134109.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.4869865}{\detokenize{10.1063/1.4869865}}}.
+
+\bibitem[Karhan \em{et~al.}(2014)Karhan, Khaliullin, and K\"uhne]{Karhan}
+Karhan, K.; Khaliullin, R.Z.; K\"uhne, T.D.
+\newblock On the role of interfacial hydrogen bonds in ``on-water'' catalysis.
+\newblock {\em J. Chem. Phys.} {\bf 2014}, {\em 141},~22D528.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.4902537}{\detokenize{10.1063/1.4902537}}}.
+
+\bibitem[Hutter \em{et~al.}(2014)Hutter, Iannuzzi, Schiffmann, and
+  VandeVondele]{CP2Ka}
+Hutter, J.; Iannuzzi, M.; Schiffmann, F.; VandeVondele, J.
+\newblock CP2K: atomistic simulations of condensed matter systems.
+\newblock {\em WIREs Comput. Mol. Sci.} {\bf 2014}, {\em 4},~15--25.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1002/wcms.1159}{\detokenize{10.1002/wcms.1159}}}.
+
+\bibitem[K\"uhne \em{et~al.}(2020)K\"uhne, Iannuzzi, {Del Ben}, Rybkin,
+  Seewald, Stein, Laino, Khaliullin, Sch\"utt, Schiffmann, Golze, Wilhelm,
+  Chulkov, {Bani-Hashemian}, Weber, Borstnik, Taillefumier, {Shoshana
+  Jakobovits}, Lazzaro, Pabst, M\"uller, Schade, Guidon, Andermatt, Holmberg,
+  Schenter, Hehn, Bussy, Belleflamme, Tabacchi, Gl\"o{\ss}, Lass, Bethune,
+  Mundy, Plessl, Watkins, VandeVondele, Krack, and Hutter]{CP2Kb}
+K\"uhne, T.; Iannuzzi, M.; {Del Ben}, M.; Rybkin, V.; Seewald, P.; Stein, F.;
+  Laino, T.; Khaliullin, R.; Sch\"utt, O.; Schiffmann, F.; Golze, D.; Wilhelm,
+  J.; Chulkov, S.; {Bani-Hashemian}, M.; Weber, V.; Borstnik, U.; Taillefumier,
+  M.; {Shoshana Jakobovits}, A.; Lazzaro, A.; Pabst, H.; M\"uller, T.; Schade,
+  R.; Guidon, M.; Andermatt, S.; Holmberg, N.; Schenter, G.; Hehn, A.; Bussy,
+  A.; Belleflamme, F.; Tabacchi, G.; Gl\"o{\ss}, A.; Lass, M.; Bethune, I.;
+  Mundy, C.; Plessl, C.; Watkins, M.; VandeVondele, J.; Krack, M.; Hutter, J.
+\newblock CP2K: An Electronic Structure and Molecular Dynamics Software Package
+  -- Quickstep: Efficient and Accurate Electronic Structure Calculations {\bf
+  2020}.
+\newblock  \href{http://xxx.lanl.gov/abs/2003.03868}{{\normalfont
+  [arXiv:physics.chem-ph/2003.03868]}}.
+
+\bibitem[Bazant and Kaxiras(1996)]{EIP1}
+Bazant, M.Z.; Kaxiras, E.
+\newblock Modeling of Covalent Bonding in Solids by Inversion of Cohesive
+  Energy Curves.
+\newblock {\em Phys. Rev. Lett.} {\bf 1996}, {\em 77},~4370--4373.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevLett.77.4370}{\detokenize{10.1103/PhysRevLett.77.4370}}}.
+
+\bibitem[Bazant \em{et~al.}(1997)Bazant, Kaxiras, and Justo]{EIP2}
+Bazant, M.Z.; Kaxiras, E.; Justo, J.F.
+\newblock Environment-dependent interatomic potential for bulk silicon.
+\newblock {\em Phys. Rev. B} {\bf 1997}, {\em 56},~8542--8552.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevB.56.8542}{\detokenize{10.1103/PhysRevB.56.8542}}}.
+
+\bibitem[Ricci and Ciccotti(2003)]{Ricci}
+Ricci, A.; Ciccotti, G.
+\newblock Algorithms for Brownian dynamics.
+\newblock {\em Mol. Phys.} {\bf 2003}, {\em 101},~1927--1931.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1080/0026897031000108113}{\detokenize{10.1080/0026897031000108113}}}.
+
+\bibitem[Jones and Leimkuhler(2011)]{JonesLeimkuhler2011}
+Jones, A.; Leimkuhler, B.
+\newblock Adaptive stochastic methods for sampling driven molecular systems.
+\newblock {\em J. Chem. Phys.} {\bf 2011}, {\em 135},~084125.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.3626941}{\detokenize{10.1063/1.3626941}}}.
+
+\bibitem[Mones \em{et~al.}(2015)Mones, Jones, Go\"otz, Laino, Walker,
+  Leimkuhler, Csanyi, and Bernstein]{Mones2015}
+Mones, L.; Jones, A.; Go\"otz, A.W.; Laino, T.; Walker, R.C.; Leimkuhler, B.;
+  Csanyi, G.; Bernstein, N.
+\newblock The Adaptive Buffered Force QM/MM Method in the CP2K and AMBER
+  Software Packages.
+\newblock {\em J. Comp. Chem.} {\bf 2015}, {\em 36},~633--648.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1002/jcc.23839}{\detokenize{10.1002/jcc.23839}}}.
+
+\bibitem[Leimkuhler \em{et~al.}(2019)Leimkuhler, Sachs, and
+  Stoltz]{LeimkuhlerStoltz2019}
+Leimkuhler, B.; Sachs, M.; Stoltz, G.
+\newblock HYPOCOERCIVITY PROPERTIES OF ADAPTIVE LANGEVIN DYNAMICS {\bf 2019}.
+\newblock  \href{http://xxx.lanl.gov/abs/1908.09363}{{\normalfont
+  [arXiv:math.PR/1908.09363]}}.
+
+\bibitem[Nos\'e(1984)]{Nose}
+Nos\'e, S.
+\newblock A unified formulation of the constant temperature molecular dynamics
+  methods.
+\newblock {\em J. Chem. Phys.} {\bf 1984}, {\em 81},~511.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.447334}{\detokenize{10.1063/1.447334}}}.
+
+\bibitem[Hoover(1985)]{Hoover}
+Hoover, W.G.
+\newblock Canonical dynamics: Equilibrium phase-space distributions.
+\newblock {\em Phys. Rev. A} {\bf 1985}, {\em 31},~1695--1697.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevA.31.1695}{\detokenize{10.1103/PhysRevA.31.1695}}}.
+
+\bibitem[Scheiber \em{et~al.}(2018)Scheiber, Shi, and Khaliullin]{RZK}
+Scheiber, H.; Shi, Y.; Khaliullin, R.Z.
+\newblock Communication: Compact orbitals enable low-cost linear-scaling ab
+  initio molecular dynamics for weakly-interacting systems.
+\newblock {\em J. Chem. Phys.} {\bf 2018}, {\em 148},~231103.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1063/1.5029939}{\detokenize{10.1063/1.5029939}}}.
+
+\bibitem[R\"ohrig and K\"uhne(2013)]{KAF}
+R\"ohrig, K.A.F.; K\"uhne, T.D.
+\newblock Optimal calculation of the pair correlation function for an
+  orthorhombic system.
+\newblock {\em Phys. Rev. E} {\bf 2013}, {\em 87},~045301.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1103/PhysRevE.87.045301}{\detokenize{10.1103/PhysRevE.87.045301}}}.
+
+\bibitem[Kapil \em{et~al.}(2019)Kapil, Rossi, Marsalek, Petraglia, Litman,
+  Spura, Cheng, Cuzzocrea, Mei{\ss}ner, Wilkins, Helfrecht, Juda, Bienvenue,
+  Fang, Kessler, Poltavsky, Vandenbrande, Wieme, Corminboeuf, K{\"u}hne,
+  Manolopoulos, Markland, Richardson, Tkatchenko, Tribello, Speybroeck, and
+  Ceriotti]{iPi}
+Kapil, V.; Rossi, M.; Marsalek, O.; Petraglia, R.; Litman, Y.; Spura, T.;
+  Cheng, B.; Cuzzocrea, A.; Mei{\ss}ner, R.H.; Wilkins, D.M.; Helfrecht, B.A.;
+  Juda, P.; Bienvenue, S.P.; Fang, W.; Kessler, J.; Poltavsky, I.;
+  Vandenbrande, S.; Wieme, J.; Corminboeuf, C.; K{\"u}hne, T.D.; Manolopoulos,
+  D.E.; Markland, T.E.; Richardson, J.O.; Tkatchenko, A.; Tribello, G.A.;
+  Speybroeck, V.V.; Ceriotti, M.
+\newblock {i-PI} 2.0: A universal force engine for advanced molecular
+  simulations.
+\newblock {\em Comp. Phys. Commun.} {\bf 2019}, {\em 236},~214--223.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1016/j.cpc.2018.09.020}{\detokenize{10.1016/j.cpc.2018.09.020}}}.
+
+\bibitem[Steane(1999)]{Steane}
+Steane, A.M.
+\newblock Efficient fault-tolerant quantum computing.
+\newblock {\em Nature} {\bf 1999}, {\em 399},~124--126.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1038/20127}{\detokenize{10.1038/20127}}}.
+
+\bibitem[Knill(2005)]{Knill}
+Knill, E.
+\newblock Quantum computing with realistically noisy devices.
+\newblock {\em Nature} {\bf 2005}, {\em 434},~39--44.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1038/nature03350}{\detokenize{10.1038/nature03350}}}.
+
+\bibitem[Benhelm \em{et~al.}(2008)Benhelm, Kirchmair, Roos, and Blatt]{Blatt}
+Benhelm, J.; Kirchmair, G.; Roos, C.F.; Blatt, R.
+\newblock Towards fault-tolerant quantum computing with trapped ions.
+\newblock {\em Nature Physics} {\bf 2008}, {\em 4},~463--466.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1038/nphys961}{\detokenize{10.1038/nphys961}}}.
+
+\bibitem[Chow \em{et~al.}(2014)Chow, Gambetta, Magesan, Abraham, Cross,
+  Johnson, Masluk, Ryan, Smolin, Srinivasan, and Steffen]{Chow}
+Chow, J.M.; Gambetta, J.M.; Magesan, E.; Abraham, D.W.; Cross, A.W.; Johnson,
+  B.R.; Masluk, N.A.; Ryan, C.A.; Smolin, J.A.; Srinivasan, S.J.; Steffen, M.
+\newblock Implementing a strand of a scalable fault-tolerant quantum computing
+  fabric.
+\newblock {\em Nature Commun.} {\bf 2014}, {\em 5},~4015.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1038/ncomms5015}{\detokenize{10.1038/ncomms5015}}}.
+
+\bibitem[{Efstathiou} \em{et~al.}(1985){Efstathiou}, {Davis}, {Frenk}, and
+  {White}]{White}
+{Efstathiou}, G.; {Davis}, M.; {Frenk}, C.S.; {White}, S.D.M.
+\newblock {Numerical techniques for large cosmological N-body simulations}.
+\newblock {\em The Astrophysical Journal} {\bf 1985}, {\em 57},~241--260.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1086/191003}{\detokenize{10.1086/191003}}}.
+
+\bibitem[{Hernquist} \em{et~al.}(1993){Hernquist}, {Hut}, and {Makino}]{Makino}
+{Hernquist}, L.; {Hut}, P.; {Makino}, J.
+\newblock {Discreteness Noise versus Force Errors in N-Body Simulations}.
+\newblock {\em The Astrophysical Journal} {\bf 1993}, {\em 402},~L85.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1086/186706}{\detokenize{10.1086/186706}}}.
+
+\bibitem[Lass \em{et~al.}(2018)Lass, Mohr, Wiebeler, K\"{u}hne, and
+  Plessl]{LassAC}
+Lass, M.; Mohr, S.; Wiebeler, H.; K\"{u}hne, T.D.; Plessl, C.
+\newblock A Massively Parallel Algorithm for the Approximate Calculation of
+  Inverse P-th Roots of Large Sparse Matrices.
+\newblock  Proc. Platform for Advanced Scientific Computing Conference; ACM:
+  New York, NY, USA,  2018; PASC '18, pp. 7:1--7:11.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1145/3218176.3218231}{\detokenize{10.1145/3218176.3218231}}}.
+
+\end{thebibliography}
